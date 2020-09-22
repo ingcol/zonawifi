@@ -1,0 +1,315 @@
+/*CUSTOM CSS*/
+body {
+	background: #fafafa !important;
+}
+/*css datepiker*/
+.wrapper .page-wrap .app-sidebar.colored .sidebar-header {
+    background-color: #9e3f38;
+    border-bottom: 1px solid white;
+}
+.wrapper .page-wrap .app-sidebar.colored .sidebar-content {
+    background-color: #9e3f38;
+}
+.wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item a i {
+     color: #fff; 
+}
+.wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item .submenu-content {
+    background-color: #ffff;
+}
+.wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item a {
+    color: #333;
+}
+.wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.open::after, .wrapper .page-wrap .app-sidebar.colored .sidebar-content .nav-container .navigation-main .nav-item.active::after {
+    background-color: #fff;
+}
+
+.wrapper .page-wrap .app-sidebar .sidebar-header .header-brand {
+	display: block;
+	font-size: 16px!important;
+	font-weight: 700;
+	color: #212529;
+}
+.auth-wrapper .lavalite-bg .lavalite-overlay-login {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.0) !important;}
+	.wrapper .page-wrap .app-sidebar {
+
+		-webkit-box-shadow:none !important;
+		-moz-box-shadow:none !important;
+		box-shadow:none!important;
+
+	}
+	.encabezado-turnero{background: rgb(65, 202, 63,0.5); width: 100%; padding: 5px;
+		box-shadow: 0 0 10px #ddd; height: 80px; border-bottom: 2px #ddd solid }
+		.fa-encabezado-turnero{background: #fff; color:#5cb85c;
+			padding: 14px; border-radius: 100%;font-size: 24px}
+
+			.widgett {
+
+				padding: 4px;
+				border-right:solid 1px #fafafa;
+				border-bottom: solid 1px #fafafa;
+				border-top: solid 1px #fafafa;
+
+				border-left: solid 20px #f6f6f6;
+				background-color: red;
+				border-radius: 10px;
+				color:white;
+
+			}
+
+
+			.modal-dialogm {
+				width: 98%;
+				height: 92%;
+				padding: 0;
+			}
+			.teclado{
+				padding: 1px 8px; margin-right: 20px;
+				background: #828282!important; font-size: 40px;
+				border-radius: 5px;cursor: pointer;
+
+			}
+			.teclado:hover{
+				background: #828282!important;
+			}
+			.modal-dialogm {
+				width: 100%;
+				height: auto;
+
+				margin: 0;
+				top: 0;
+				left: 0;}
+				.fade.in {
+					background: #f6f6f6;
+				}
+				.modal-contentm{
+					background: #f6f6f6; border:0
+				}
+				.departamento{
+					cursor: pointer;
+				}
+
+				.validacion{
+					color:red; font-size: 28px; margin-top: 5px;
+					margin-bottom: 15px;
+					height: 25px;
+				}
+				.documento-cliente{font-size: 44px;letter-spacing:4px; border: solid 2px #d8d8d8;}
+				.delete{font-size: 25px;}
+				.keyboard{background: #fafafa; padding: 8px}
+				.form-turno{background:   #2dce89;   font-size: 28px; margin-right: 18px}
+
+
+
+				.rojot{background-color: #F22613;
+
+				}
+				.azulClarot{background-color: #0fb9d8;
+				}
+				.naranjat{background-color: orange;
+
+				}
+				.verdet{
+					background-color: #2dce89;
+
+				}
+				.moradot{
+					background-color: #6b407e;
+
+				}
+				.azulOscurot{
+					background-color: #1c3643;
+
+				}
+				.fafat{  background-color: #ddd;
+
+				}
+				.marront{  background-color: #CD853F;
+
+				}
+				.verdeRgt{
+					background-color: #20B2AA;
+
+				}
+				.azulRgt{
+					background: #4682B4;
+
+				}
+				.listprioridad{
+					border-left: solid 5px #dc3545;
+
+					border-right: solid 1px #ddd;
+					border-bottom: solid 1px #ddd;
+					border-top: solid 1px #ddd;
+					background: #fafafa;
+					cursor: pointer;
+
+					font-weight: 600;
+					border-radius: 10px !important;
+
+
+
+					font-size: 26px;
+
+					}.widget .widget-body {
+						padding: 14px;
+					}
+					.border-home-green{
+						border-bottom: #2dce89 2px solid
+
+					}
+					.border-home-orange{
+						border-bottom: orange 2px solid
+					}
+					.border-home-blue{
+						border-bottom: 2px solid #11cdef ;
+					}
+					.btn-ayuda {
+						background: white;
+						border-radius: 20px;
+						padding: 3px 12px;
+						cursor: pointer;
+						color: #333;
+						font-weight: bold;
+						box-shadow: 6px 6px 1px #ccc;
+						border: 1px solid #fafafa;
+						font-size: 14px;
+					}
+					.btn-atras{
+						padding: 3px 12px;
+						cursor: pointer;
+						color: #333;
+						font-weight: bold;
+
+						border: 1px solid #fafafa;
+						font-size: 14px;}
+						.bg-red{
+							background: #F22613;
+						}
+						.bg-fa{
+							background: #fafafa
+						}
+						.bg-green{
+							background: #2dce89;
+						}
+						.bg-button {
+							background: #404E67
+						}
+						.bg-orange{
+							background: orange;
+						}
+
+						.row-container{background: white;
+							padding: 40px 20px;
+							margin: 3px; box-shadow: 0 0 1px #ddd;}
+							.container-modal{background: rgb(65, 202, 63,0.5);
+								box-shadow: 0px 2px 1px #ddd;}
+								.confirmar-turno{border: solid 8px #fafafa;
+									box-shadow: 2px 2px 1px #d8d8d8; background: #2dce89; border-radius: 45px;  padding: 8px 20px;font-size: 34px}
+									.fa-boder{background: #fff; color:#999; padding: 14px; font-size: 25px;
+										border-radius: 100% ;width: 50px; height: 50px}
+										.btn-prioridad{border: solid 8px #fafafa;
+											box-shadow: 2px 2px 1px #d8d8d8; background: #dc3545;border-radius: 45px; padding: 8px 20px;font-size: 34px
+										}
+										.btn-cancelar-turno{border-radius: 20px;
+											padding: 3px 16px; font-size: 25px; background: #fafafa}
+											.header-card{background: #fff}
+
+											/*Crud css*/
+											.input-custom{
+												border-radius: 5px;
+												height: 35px !important;
+												background: #fff;
+											}
+											.margin-button{color: #222 !important;  padding: 3px 14px; background: #fafafa; margin-left: 2px; cursor: pointer
+											}
+											.cantidad-registro{margin-top: 5px;}
+											.tabla-fondo{
+												background: #f7f7f7;
+											}
+											.paginator{
+												float: right;
+											}
+											.btn-guardar{
+												background: #0fb9d8;
+												border-radius: 20px;
+												padding: 2px 10px;
+												color:white;
+												box-shadow: 2px 5px 2px #ddd;
+												border:0;font-size: 14px;
+											}
+
+											.btn-editar{
+												background: orange;
+												border-radius: 20px;
+												padding: 2px 14px;
+												color:white !important;
+												box-shadow: 2px 5px 2px #ddd;
+												cursor: pointer;
+												border:0;
+												font-size: 14px;
+
+											}
+											.btn-cerrar{
+												background: #F22613;
+												border-radius: 20px;
+												padding: 2px 14px;
+												color:white !important;
+												box-shadow: 2px 5px 2px #ddd;
+												cursor: pointer;border:0;font-size: 14px;
+
+											}
+											.contenedor{
+												background: white;padding: 20px;border: solid 1px #f7f7f7; margin: 0 5px 0 5px
+											}
+											.registrar-beneficiario{
+												text-align:right;
+											}
+											.contenedor-beneficiario{
+												background: white;
+												padding: 20px 5px;
+												border: solid 1px #f7f7f7;
+												margin: 0 5px 0 5px;
+											}
+											.d-float-right{
+												float: right;
+
+											}
+											.d-center{
+												text-align: center;
+											}
+											.span-responsive{
+													display: inline-block;
+													background: #fafafa;
+													padding: 6px 10px;
+													margin-top: 2px; margin-right: 2px
+													margin-left: 40px;
+												}
+											@media (max-width:200px) {
+
+												.d-line {display: block !important;}
+											}
+											@media (max-width: 767px) {
+												.span-responsive{
+													display: block !important;
+												}
+												.d-float-right{
+													float:left;
+												}
+												.d-center{
+													text-align: left;
+												}
+
+												.titulo-beneficiario{
+													text-align: center ;
+												}
+												.registrar-beneficiario{
+													margin-top: 14px;
+													text-align: center;
+												}
+											}

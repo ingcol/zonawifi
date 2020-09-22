@@ -1,0 +1,50 @@
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['NombreUsuario','ApellidoUsuario','DocumentoUsuario','email','username','EstadoUsuario','TelfonoUsuario', 'password','GeneroUsuario'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+    public function modulo(){
+
+        return $this->belongsTo(Modulo::class);
+    }
+    public function turnos(){
+        return $this->hasMany(Turno::class,'user_id');
+
+    }
+}
