@@ -12,7 +12,7 @@ class InformeController extends Controller
 	}
 	public function listadoInforme(){
 
-		$persona=Persona::orderBy('id','desc')->get();
+		$persona=Persona::orderBy('created_at','desc')->get();
 		$personaCantidad=$persona->count();
 		return response()->json(['persona' => $persona, 'personaCantidad' => $personaCantidad]);
 
