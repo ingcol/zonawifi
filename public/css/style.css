@@ -29,6 +29,23 @@ body {
 	font-weight: 700;
 	color: #212529;
 }
+.widget {
+    border-color: #ffff;
+    position: relative;
+    width: 100%;
+    border: none;
+    margin-bottom: 30px;
+    background-color: #fff;
+    overflow: hidden;
+  box-shadow: none;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
 .auth-wrapper .lavalite-bg .lavalite-overlay-login {
 	position: absolute;
 	width: 100%;

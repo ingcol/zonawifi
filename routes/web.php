@@ -18,6 +18,8 @@ Route::group(['prefix' => 'api', 'middleware' => ['auth']], function(){
 
   //Zona wifi
 Route::get('informe', 'InformeController@listadoInforme');
+Route::get('graficaRondon', 'graficaRondonController@graficaRondon');
+
 
 
 //INICIO SUBSIDIO
@@ -84,6 +86,8 @@ Route::get('exportarExcel','informeExcelController@excel');
  //Zona wifi
 
   Route::get('informe','InformeController@index')->name('informe.index');
+  Route::get('graficaRondon', 'graficaRondonController@index')->name('graficaRondon.index');
+
 
 
 

@@ -22,6 +22,16 @@ Vue.use(VueSweetalert2);
 import fullscreen from 'vue-fullscreen';
 Vue.use(fullscreen);
 
+// Include Dependencies
+
+import VueFusionCharts from 'vue-fusioncharts';
+import FusionCharts from 'fusioncharts';
+import Column2D from 'fusioncharts/fusioncharts.charts';
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import Excel from 'fusioncharts/fusioncharts.excelexport';
+
+Vue.use(VueFusionCharts, FusionCharts, Column2D, FusionTheme,Excel);
+
 
 
 /**
@@ -46,6 +56,8 @@ Vue.component('beneficiario', require('./components/BeneficiarioComponent.vue').
 Vue.component('informeexcel', require('./components/InformeExcelComponent.vue').default);
 Vue.component('beneficiariosinayuda', require('./components/BeneficiarioSinAyudaComponent.vue').default);
 Vue.component('informe', require('./components/InformeComponent.vue').default);
+Vue.component('grafica-rondon', require('./components/GraficaRondonComponent.vue').default);
+
 
 
 /**
