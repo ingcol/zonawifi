@@ -18,8 +18,8 @@ Route::group(['prefix' => 'api', 'middleware' => ['auth']], function(){
 
   //Zona wifi
 Route::get('informe', 'InformeController@listadoInforme');
-Route::get('graficaRondon', 'graficaRondonController@graficaRondon');
-Route::get('datosRondon', 'graficaRondonController@datosRondon');
+Route::get('graficaRondon', 'GraficaRondonController@graficaRondon');
+Route::get('datosRondon', 'GraficaRondonController@datosRondon');
 
 
 
@@ -88,7 +88,7 @@ Route::get('exportarExcel','informeExcelController@excel');
  //Zona wifi
 
   Route::get('informe','InformeController@index')->name('informe.index');
-  Route::get('graficaRondon', 'graficaRondonController@index')->name('graficaRondon.index');
+  Route::get('graficaRondon', 'GraficaRondonController@index')->name('graficaRondon.index');
 
 
 
