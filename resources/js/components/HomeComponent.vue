@@ -17,7 +17,7 @@
               <div >
                 <div class="state text-center">
                   <i class="fa fa-wifi text-success" style="font-size: 20px; font-weight: bold;"></i>
-                  <h6 class="text-dark "> Zona wifi P/Rondón</h6>
+                  <h6 class="text-dark ">Estadística P-Rondón</h6>
                  
                 </div>
               </div>

@@ -190,7 +190,7 @@
                                 -->
                                 <div class="nav-item">
                                     <a href="{{route('informe.index')}}" class="text-white" ><i class="ik file-text ik-file-text
-                                        "></i><span>Informe</span></a>
+                                        "></i><span>Listado P-Rondón</span></a>
                                     </div>
                                     <!--
                                     @can('Sección de informes')

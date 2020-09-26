@@ -19,6 +19,8 @@ Route::group(['prefix' => 'api', 'middleware' => ['auth']], function(){
   //Zona wifi
 Route::get('informe', 'InformeController@listadoInforme');
 Route::get('graficaRondon', 'graficaRondonController@graficaRondon');
+Route::get('datosRondon', 'graficaRondonController@datosRondon');
+
 
 
 
