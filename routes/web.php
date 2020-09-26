@@ -101,13 +101,4 @@ Route::get('exportarExcel','informeExcelController@excel');
 
 
 });
-Route::get('/limpiar', function() {
 
-   Artisan::call('cache:clear');
-   Artisan::call('config:clear');
-   Artisan::call('config:cache');
-   Artisan::call('view:clear');
-
-   return "Cleared!";
-
-});
