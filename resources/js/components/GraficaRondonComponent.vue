@@ -150,8 +150,8 @@
       mounted () {
         this.isLoading = true;
         setTimeout(() => {
-                  this.isLoading = false
-                },8000)
+          this.isLoading = false
+        },8000)
         this.fillData();
         this.getGeneros();
         this.datosBeneficiario();
@@ -251,6 +251,9 @@
 
                 xaxisname: "",
                 yaxisname: "Cantidad de personas",
+                "thousandSeparator": ".",
+                "numberScaleValue": "1000,1000,1000",
+
 
                 theme: "fusion",
                 exportEnabled:1,
@@ -311,7 +314,9 @@
               "valueBgAlpha": "50",
               "borderColor": "#666666",
               "borderThickness": "4",
-             
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
+
 
             },
             data: [
@@ -366,6 +371,8 @@
               "valueBgAlpha": "50",
               "borderColor": "#FFFFFF",
               "borderThickness": "0",
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
               
               paletteColors: '#0075c2,#1aaf5d,#f2c500,#FF5733',
 
@@ -419,7 +426,8 @@
               "valueBgAlpha": "50",
               "borderColor": "#666666",
               "borderThickness": "4",
-              
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
               paletteColors: '#0075c2,#1aaf5d,#f2c500,#FF5733,#681D0D,#8944CE,#1C95BF,#5F1CBF',
 
             },
@@ -466,135 +474,137 @@
         });
 
       },
-       getHorario(){
+      getHorario(){
 
-         axios.get('api/graficaRondon').then(response=>{
-          this.dataHorario= {
-            chart: {
-              caption: "Horario de conexión",
+       axios.get('api/graficaRondon').then(response=>{
+        this.dataHorario= {
+          chart: {
+            caption: "Horario de conexión",
 
-              xaxisname: "",
-              yaxisname: "Cantidad de personas",
+            xaxisname: "",
+            yaxisname: "Cantidad de personas",
 
-              theme: "fusion",
-              exportEnabled:1,
-              "showValues": "1",
-              "rotateValues": "0",
-              "valueFontColor": "#000000",
-              "valueBgColor": "#FFFFFF",
-              "valueBgAlpha": "50",
-              "borderColor": "#666666",
-              "borderThickness": "4",
-             
-
-            },
-            data: [
-            {
-              label: "12  AM",
-              value: response.data.navegacionCero
-            },
-            {
-              label: "1",
-              value: response.data.navegacionUno
-            },
-            {
-              label: "2",
-              value: response.data.navegacionDos
-            },
-            {
-              label: "3",
-              value: response.data.navegacionTres
-            },
-            {
-              label: "4",
-              value: response.data.navegacionCuatro
-            },
-            {
-              label: "5",
-              value: response.data.navegacionCinco
-            },
-            {
-              label: "6",
-              value: response.data.navegacionSeis
-            },
-            {
-              label: "7",
-              value: response.data.navegacionSiete
-            },
-            {
-              label: "8",
-              value: response.data.navegacionOcho
-            },
-            {
-              label: "9",
-              value: response.data.navegacionNueve
-            },
-            {
-              label: "10",
-              value: response.data.navegacionDiez
-            },
-            {
-              label: "11",
-              value: response.data.navegacionDuno
-            },
-            {
-              label: "12  PM",
-              value: response.data.navegacionDdos
-            },
-            {
-              label: "1",
-              value: response.data.navegacionDtres
-            },
-            {
-              label: "2",
-              value: response.data.navegacionDcuatro
-            },{
-              label: "3",
-              value: response.data.navegacionDquinto
-            },
-            {
-              label: "4",
-              value: response.data.navegacionDsexto
-            },
-            {
-              label: "5",
-              value: response.data.navegacionDseptimo
-            },
-            {
-              label: "6",
-              value: response.data.navegacionDoctavo
-            },
-            {
-              label: "7",
-              value: response.data.navegacionDnoveno
-            },{
-              label: "8",
-              value: response.data.navegacionVeinte
-            },
-            {
-              label: "9",
-              value: response.data.navegacionVuno
-            },
-            {
-              label: "10",
-              value: response.data.navegacionVdos
-            },
-            {
-              label: "11",
-              value: response.data.navegacionVtres
-            },
-            
+            theme: "fusion",
+            exportEnabled:1,
+            "showValues": "1",
+            "rotateValues": "0",
+            "valueFontColor": "#000000",
+            "valueBgColor": "#FFFFFF",
+            "valueBgAlpha": "50",
+            "borderColor": "#666666",
+            "borderThickness": "4",
+            "thousandSeparator": ".",
+            "numberScaleValue": "1000,1000,1000",
 
 
-            ],
+          },
+          data: [
+          {
+            label: "12  AM",
+            value: response.data.navegacionCero
+          },
+          {
+            label: "1",
+            value: response.data.navegacionUno
+          },
+          {
+            label: "2",
+            value: response.data.navegacionDos
+          },
+          {
+            label: "3",
+            value: response.data.navegacionTres
+          },
+          {
+            label: "4",
+            value: response.data.navegacionCuatro
+          },
+          {
+            label: "5",
+            value: response.data.navegacionCinco
+          },
+          {
+            label: "6",
+            value: response.data.navegacionSeis
+          },
+          {
+            label: "7",
+            value: response.data.navegacionSiete
+          },
+          {
+            label: "8",
+            value: response.data.navegacionOcho
+          },
+          {
+            label: "9",
+            value: response.data.navegacionNueve
+          },
+          {
+            label: "10",
+            value: response.data.navegacionDiez
+          },
+          {
+            label: "11",
+            value: response.data.navegacionDuno
+          },
+          {
+            label: "12  PM",
+            value: response.data.navegacionDdos
+          },
+          {
+            label: "1",
+            value: response.data.navegacionDtres
+          },
+          {
+            label: "2",
+            value: response.data.navegacionDcuatro
+          },{
+            label: "3",
+            value: response.data.navegacionDquinto
+          },
+          {
+            label: "4",
+            value: response.data.navegacionDsexto
+          },
+          {
+            label: "5",
+            value: response.data.navegacionDseptimo
+          },
+          {
+            label: "6",
+            value: response.data.navegacionDoctavo
+          },
+          {
+            label: "7",
+            value: response.data.navegacionDnoveno
+          },{
+            label: "8",
+            value: response.data.navegacionVeinte
+          },
+          {
+            label: "9",
+            value: response.data.navegacionVuno
+          },
+          {
+            label: "10",
+            value: response.data.navegacionVdos
+          },
+          {
+            label: "11",
+            value: response.data.navegacionVtres
+          },
 
-          };
-        });
 
-       },
 
-    }
-  };
+          ],
+
+        };
+      });
+
+     },
+
+   }
+ };
 </script>
 <style>
 .bg-home{
