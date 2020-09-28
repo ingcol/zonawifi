@@ -45,17 +45,17 @@ class ZonaWifiTameController extends Controller
    ];
 
    $this->validate($request, $rules, $messages);
-    $persona=new Persona;
-    $persona->NombrePersona=$request->nombrePersona;
-    $persona->EdadPersona=$request->edadPersona;
-    $persona->GeneroPersona=$request->generoPersona;
-    $persona->BarrioPersona=$request->barrioPersona;
-    $persona->OcupacionPersona=$request->ocupacionPersona;
-    $persona->PoblacionPersona=$request->poblacionPersona;
-    $persona->MacPersona=$request->macPersona;
+    $datoPersona=new ZonaWifiTame;
+    $datoPersona->NombrePersona=$request->nombrePersona;
+    $datoPersona->EdadPersona=$request->edadPersona;
+    $datoPersona->GeneroPersona=$request->generoPersona;
+    $datoPersona->BarrioPersona=$request->barrioPersona;
+    $datoPersona->OcupacionPersona=$request->ocupacionPersona;
+    $datoPersona->PoblacionPersona=$request->poblacionPersona;
+    $datoPersona->MacPersona=$request->macPersona;
 
-    $persona->save();
-    return $persona;
+    $datoPersona->save();
+    return $datoPersona;
 
 
 
