@@ -22,7 +22,7 @@ class CreatePersonasTable extends Migration
             $table->string('PoblacionPersona');
             $table->string('EstadoPersona');
             $table->string('OcupacionPersona');
-            $table->string('MacPersona');
+            $table->string('MacPersona')->nullable();
             
             $table->timestamps();
         });
