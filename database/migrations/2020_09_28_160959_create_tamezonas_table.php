@@ -15,6 +15,15 @@ class CreateTamezonasTable extends Migration
     {
         Schema::create('tamezonas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('NombrePersona');
+            $table->bigInteger('EdadPersona')->unsigned();
+            $table->string('GeneroPersona');
+            $table->string('BarrioPersona');
+            $table->string('PoblacionPersona');
+            $table->string('EstadoPersona');
+            $table->string('OcupacionPersona');
+            $table->string('MacPersona')->nullable();
+            
             $table->timestamps();
         });
     }
