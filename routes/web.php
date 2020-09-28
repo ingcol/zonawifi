@@ -8,13 +8,11 @@ Route::group(["middleware" => "apikey.validate"], function () {
 
   //Rutas
   Route::post('portalCautivoRegistrar','PortalCautivoController@portalCautivoRegistrar');
-  Route::post('portalZonaTameRegistrar','PortalCautivoController@portalZonaTameRegistrar');
-  //Tame 'http://167.172.28.167/portalZonaTameRegistrar?api_key=key_cur_prod_fnPqT5xQEi5Vcb9wKwbCf6ty45a2nMu6'
+  Route::post('portalZonaTameRegistrar','ZonaWifiTameController@portalZonaTameRegistrar');
 
 
 
 });
-
 
 //Route vue
 Route::group(['prefix' => 'api', 'middleware' => ['auth']], function(){

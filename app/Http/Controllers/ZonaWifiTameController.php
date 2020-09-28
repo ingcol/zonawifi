@@ -17,7 +17,7 @@ class ZonaWifiTameController extends Controller
             'required','min:3',
            
         ],
-        'edadPersona'=>'required|numeric|min:5|max:105',
+        'edadPersona'=>'required|numeric|min:5|max:102',
         'generoPersona'=>'required',
         'barrioPersona'=>'required',
         'ocupacionPersona'=>'required',
