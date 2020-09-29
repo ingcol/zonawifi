@@ -8,7 +8,7 @@
 
            
 
-         <div class="col-lg-4 col-md-4 col-sm-12">
+         <div class="col-lg-6 col-md-6 col-sm-12">
           <a href="graficaRondon">
 
           <div class="widget  border-home-green" style="background: #f7f7f7" >
@@ -18,6 +18,25 @@
                 <div class="state text-center">
                   <i class="fa fa-wifi text-success" style="font-size: 20px; font-weight: bold;"></i>
                   <h6 class="text-dark ">Estadística P-Rondón</h6>
+                 
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          </a>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <a href="graficaGeneralTame">
+
+          <div class="widget  border-home-orange" style="background: #f7f7f7" >
+            <div class="widget-body">
+
+              <div >
+                <div class="state text-center">
+                  <i class="fa fa-wifi text-warning" style="font-size: 20px; font-weight: bold;"></i>
+                  <h6 class="text-dark ">Estadística Tame</h6>
                  
                 </div>
               </div>

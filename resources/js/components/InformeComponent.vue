@@ -127,7 +127,7 @@
     export default {
       created() {
         this.getPersonas();
-        this.getPolicy();
+        
       },
       data() {
         let sortOrders = {};

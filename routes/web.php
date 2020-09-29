@@ -22,6 +22,11 @@ Route::get('informe', 'InformeController@listadoInforme');
 Route::get('graficaRondon', 'GraficaRondonController@graficaRondon');
 Route::get('datosRondon', 'GraficaRondonController@datosRondon');
 
+Route::get('graficaGeneralTame', 'GraficaGeneralTameController@graficaGeneralTame');
+Route::get('datosTameGeneral', 'GraficaGeneralTameController@datosTameGeneral');
+Route::get('listadoConexiones', 'ListadoConexionTameController@listadoConexiones');
+
+
 
 
 
@@ -90,6 +95,10 @@ Route::get('exportarExcel','informeExcelController@excel');
 
   Route::get('informe','InformeController@index')->name('informe.index');
   Route::get('graficaRondon', 'GraficaRondonController@index')->name('graficaRondon.index');
+    Route::get('graficaGeneralTame', 'GraficaGeneralTameController@index')->name('graficaGeneralTame.index');
+    Route::get('listadoConexionTame', 'ListadoConexionTameController@index');
+
+
 
 
 

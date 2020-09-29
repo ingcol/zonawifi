@@ -43,7 +43,7 @@
           <div class="widget-body">
             <div >
               <div class="state">
-                <h6 class="text-center">Barrios alcanzados</h6>
+                <h6 class="text-center">Barrios conectados</h6>
                 <h4 class="text-center" v-text="totalBarrioConectado"></h4>
               </div>
             </div>
