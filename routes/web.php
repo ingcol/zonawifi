@@ -25,6 +25,8 @@ Route::get('datosRondon', 'GraficaRondonController@datosRondon');
 Route::get('graficaGeneralTame', 'GraficaGeneralTameController@graficaGeneralTame');
 Route::get('datosTameGeneral', 'GraficaGeneralTameController@datosTameGeneral');
 Route::get('listadoConexiones', 'ListadoConexionTameController@listadoConexiones');
+Route::get('filtroRondonGeneral', 'FiltroGeneralRondonController@filtroRondonGeneral');
+
 
 
 
@@ -97,6 +99,8 @@ Route::get('exportarExcel','informeExcelController@excel');
   Route::get('graficaRondon', 'GraficaRondonController@index')->name('graficaRondon.index');
     Route::get('graficaGeneralTame', 'GraficaGeneralTameController@index')->name('graficaGeneralTame.index');
     Route::get('listadoConexionTame', 'ListadoConexionTameController@index');
+    Route::get('filtroRondonGeneral', 'FiltroGeneralRondonController@index')->name('filtroRondonGeneral.index');
+
 
 
 

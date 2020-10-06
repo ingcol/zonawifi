@@ -59,6 +59,7 @@ Vue.component('informe', require('./components/InformeComponent.vue').default);
 Vue.component('grafica-rondon', require('./components/GraficaRondonComponent.vue').default);
 Vue.component('grafica-general-tame', require('./components/GraficaGeneralTameComponent.vue').default);
 Vue.component('listado-conexion-tame', require('./components/ListadoConexionTameComponent.vue').default);
+Vue.component('filtro-general-rondon', require('./components/FiltroGeneralRondonComponent.vue').default);
 
 
 

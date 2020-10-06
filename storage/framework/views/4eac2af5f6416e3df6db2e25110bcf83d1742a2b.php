@@ -194,8 +194,10 @@
                                     <a href="javascript:void(0)" class="text-white" ><i class="ik bar-chart ik-bar-chart"></i><span>Wifi Rondón</span></a>
                                     <div class="submenu-content">
                                         
+                                        
                                         <a href="<?php echo e(route('informe.index')); ?>" class="menu-item">Listado de conexiones</a>
                                         <a href="graficaRondon" class="menu-item">Estadística general</a>
+                                        <a href="<?php echo e(route('filtroRondonGeneral.index')); ?>" class="menu-item">Filtro general rango de fechas</a>
                                         
 
                                     </div>
