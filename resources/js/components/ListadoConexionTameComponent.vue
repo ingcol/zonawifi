@@ -50,6 +50,7 @@
             <th>Barrio</th>
             <th>Población</th>
             <th>Ocupación</th>
+            <th>Nacionalidad</th>
             <th>Mac</th>
             <th>Fecha</th>
 
@@ -65,6 +66,7 @@
             <td>{{item.PoblacionPersona}}</td>
             <td>{{item.OcupacionPersona}}</td>
             <td>{{item.MacPersona}}</td>
+            <td>{{item.NacionalidadPersona}}</td>
             <td>{{fechaFormateada(item.created_at)}}</td>
           </tr>
         </tbody>

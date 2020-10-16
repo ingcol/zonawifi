@@ -9,5 +9,5 @@ class ZonaWifiTame extends Model
      protected  $table='tamezonas';
 
 
-	protected $fillable = ['NombrePersona', 'EdadPersona', 'GeneroPersona','PoblacionPersona','BarrioPersona','EstadoPersona','OcupacionPersona','MacPersona'];
+	protected $fillable = ['NombrePersona', 'EdadPersona', 'GeneroPersona','PoblacionPersona','BarrioPersona','EstadoPersona','OcupacionPersona','MacPersona','NacionalidadPersona'];
 }

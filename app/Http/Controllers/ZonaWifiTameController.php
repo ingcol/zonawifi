@@ -37,12 +37,9 @@ class ZonaWifiTameController extends Controller
        'edadPersona.numeric' => 'La edad ingresada no es válida',
        'generoPersona.required' => 'Debe seleccionar un género',
        'barrioPersona.required' => 'Debe seleccionar un barrio',
-       
+       'nacionalidadPersona.required' => 'Debe seleccionar una nacionalidad',
 
-
-
-
-   ];
+  ];
 
    $this->validate($request, $rules, $messages);
     $datoPersona=new ZonaWifiTame;
@@ -53,6 +50,8 @@ class ZonaWifiTameController extends Controller
     $datoPersona->OcupacionPersona=$request->ocupacionPersona;
     $datoPersona->PoblacionPersona=$request->poblacionPersona;
     $datoPersona->MacPersona=$request->macPersona;
+    $datoPersona->NacionalidadPersona=$request->nacionalidadPersona;
+
 
     $datoPersona->save();
     return $datoPersona;
