@@ -114,6 +114,21 @@
    :width="width"
    :height="height"
    :dataformat="dataFormat"
+   :dataSource="dataOcupacion"
+
+   >
+ </fusioncharts>
+
+</div>
+</div>
+
+<div class="row mt-4 mb-4  p-3 bg-white">
+  <div class="col-md-12">
+   <fusioncharts
+   :type="type"
+   :width="width"
+   :height="height"
+   :dataformat="dataFormat"
    :dataSource="dataGenero"
 
    >
@@ -152,13 +167,14 @@
         setTimeout(() => {
           this.isLoading = false
         },8000)
-        this.fillData();
+        //this.fillData();
         this.getGeneros();
         this.datosBeneficiario();
         this.getEdades();
         this.getBarrio();
         this.getPoblacion();
         this.getHorario();
+        this.getOcupaciones();
 
 
       },
@@ -189,6 +205,7 @@
           dataPoblacion:{},
           dataBarrio:{},
           dataHorario:{},
+          dataOcupacion:{},
 
 
 
@@ -224,27 +241,73 @@
           })
 
         },
-        fillData ()
-        {
+
+        getOcupaciones(){
+
           axios.get('api/graficaGeneralTame').then(response=>{
-           this.datacollection = {
-            labels: response.data.meses,
+            this.dataOcupacion= {
+              chart: {
+                caption: "Conexión por ocupación",
 
-            datasets: [
-            {
-              label: "Conexión por mes",
-              fill: true,
-              borderColor: "orange",
-              pointRadius: 3,
-              borderWidth: 2,
-              backgroundColor:"rgba(79, 44, 51, 0.1)",
+                xaxisname: "",
+                yaxisname: "Cantidad de personas",
+                "thousandSeparator": ".",
+                "numberScaleValue": "1000,1000,1000",
 
-              data: response.data.personas
-            },
-            ]
-          }
-        });
+
+                theme: "fusion",
+                exportEnabled:1,
+                "showValues": "1",
+                "rotateValues": "0",
+                "valueFontColor": "#000000",
+                "valueBgColor": "#FFFFFF",
+                "valueBgAlpha": "50",
+                "borderColor": "#666666",
+                "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+                paletteColors: '#b19a26,#FF5733,#1aaf5f,#f2c500,#681D0D,#8944CE,#1C95BF',
+
+
+              },
+              data: [
+              {
+                label: "Amas de casa",
+                value: response.data.amaDeCasa
+              },
+              {
+                label: "Estudiantes",
+                value: response.data.estudiante
+              },
+              {
+                label: "Desempleados",
+                value: response.data.desempleado
+              },
+              {
+                label: "Empleados",
+                value: response.data.empleado
+              },
+              {
+                label: "Empresarios",
+                value: response.data.empresario
+              },
+              {
+                label: "Independientes",
+                value: response.data.independiente
+              },
+              {
+                label: "Otro",
+                value: response.data.otro
+              },
+
+
+              ],
+
+            };
+          });
         },
+        
         getGeneros(){
 
           axios.get('api/graficaGeneralTame').then(response=>{
