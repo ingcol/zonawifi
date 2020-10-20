@@ -45,7 +45,6 @@
         <thead>
           <tr class=" tabla-fondo">
             <th>Nombres</th>
-            <th>Edad</th>
             <th>Género</th>
             <th>Barrio</th>
             <th>Población</th>
@@ -59,7 +58,6 @@
 
           <tr v-for="item in paginatedPersonas" :key="item.id">
             <td>{{item.NombrePersona}}</td>
-            <td>{{item.EdadPersona}}</td>
             <td>{{item.GeneroPersona}}</td>
             <td>{{item.BarrioPersona}}</td>
             <td>{{item.PoblacionPersona}}</td>
