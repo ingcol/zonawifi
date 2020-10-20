@@ -20,7 +20,8 @@ class PortalCautivoController extends Controller
         'generoPersona'=>'required',
         'barrioPersona'=>'required',
         'ocupacionPersona'=>'required',
-        'poblacionPersona'=>'required'
+        'poblacionPersona'=>'required',
+        //'nacionalidadPersona'=>'required'
         
         
 
@@ -36,6 +37,7 @@ class PortalCautivoController extends Controller
        'edadPersona.numeric' => 'La edad ingresada no es válida',
        'generoPersona.required' => 'Debe seleccionar un género',
        'barrioPersona.required' => 'Debe seleccionar un barrio',
+       //'nacionalidadPersona.required' => 'Debe seleccionar nacionalidad',
        
 
 
@@ -52,6 +54,7 @@ class PortalCautivoController extends Controller
     $persona->OcupacionPersona=$request->ocupacionPersona;
     $persona->PoblacionPersona=$request->poblacionPersona;
     $persona->MacPersona=$request->macPersona;
+    $persona->NacionalidadPersona=$request->nacionalidadPersona;
 
     $persona->save();
     return $persona;

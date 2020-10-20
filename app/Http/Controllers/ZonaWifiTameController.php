@@ -21,7 +21,8 @@ class ZonaWifiTameController extends Controller
         'generoPersona'=>'required',
         'barrioPersona'=>'required',
         'ocupacionPersona'=>'required',
-        'poblacionPersona'=>'required'
+        'poblacionPersona'=>'required',
+        //'nacionalidadPersona'=>'required'
         
         
 
@@ -37,7 +38,7 @@ class ZonaWifiTameController extends Controller
        'edadPersona.numeric' => 'La edad ingresada no es válida',
        'generoPersona.required' => 'Debe seleccionar un género',
        'barrioPersona.required' => 'Debe seleccionar un barrio',
-       'nacionalidadPersona.required' => 'Debe seleccionar una nacionalidad',
+       //'nacionalidadPersona.required' => 'Debe seleccionar una nacionalidad',
 
   ];
 
