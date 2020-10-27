@@ -82,12 +82,12 @@
 
 </div>
 </div>
-<div class="row mt-4 mb-4 p-3 bg-white"  v-if="verBarriio">
+<div class="row mt-4 mb-4 p-3 bg-white"  v-if="verBarrio">
   <div class="col-md-12">
    <fusioncharts
    :type="tipoBarrio"
    :width="width"
-   :height="heightBarrio"
+   :height="height"
    :dataformat="dataFormat"
    :dataSource="dataBarrio"
 
@@ -164,16 +164,14 @@
           verEdad:false,
           verPoblacion:false,
           verHorario:false,
-          verBarriio:false,
+          verBarrio:false,
           type: "column3d",
           renderAt: "chart-container",
           width: "100%",
-          height: "350",
+          height: "600",
           dataFormat: "json",
           //eda
           tipoEdad: "column2d",
-          tipoBarrio: "bar2d",
-           heightBarrio: "680",
 
           //
           datacollection: {},
@@ -187,6 +185,9 @@
           fechaInicio:'',
           fechaFin:'',
           filtrarDatos:'',
+          height:"680",
+
+          tipoBarrio: "bar2d",
 
           isLoading: false,
 
@@ -263,7 +264,7 @@
       this.verEdad=true;
       this.verPoblacion=true;
       this.verHorario=true;
-      this.verBarriio=true;
+      this.verBarrio=true;
 
           //Género
           this.dataGenero= {
@@ -510,7 +511,6 @@
             value: response.data.barrioVocho},  
             ],
 
-
           };
           //Horario
           this.dataHorario= {
@@ -647,7 +647,7 @@
           this.verEdad=true;
           this.verPoblacion=false;
           this.verHorario=false;
-          this.verBarriio=false;
+          this.verBarrio=false;
 
           this.dataEdad= {
             chart: {
@@ -713,7 +713,7 @@
           this.verEdad=false;
           this.verPoblacion=true;
           this.verHorario=false;
-          this.verBarriio=false;
+          this.verBarrio=false;
           this.dataPoblacion= {
             chart: {
               caption: "Conexión por tipo de población",
@@ -775,7 +775,7 @@ else if (response.data.filtro==4) {
   this.verEdad=false;
   this.verPoblacion=false;
   this.verHorario=false;
-  this.verBarriio=true;
+  this.verBarrio=true;
   this.dataBarrio= {
     chart: {
       caption: "Conexión por barrio",
@@ -786,6 +786,7 @@ else if (response.data.filtro==4) {
 
       xaxisname: "",
       yaxisname: "Cantidad de personas",
+
 
       theme: "fusion",
       exportEnabled:1,
@@ -798,70 +799,68 @@ else if (response.data.filtro==4) {
       "borderThickness": "4",
       "thousandSeparator": ".",
       "numberScaleValue": "1000,1000,1000",
-      paletteColors: '#0075c2,#1aaf5d,#f2c500,#FF5733,#681D0D,#8944CE,#1C95BF,#5F1CBF',
-
+      paletteColors: '#1aaf5d',
     },
     data: [
 
 
-            {label:"Alibei",
-            value: response.data.barrioUno},
-            {label:"Acasias II",
-            value: response.data.barrioDos},  
-            {label:"Bajo cusay II",
-            value: response.data.barrioTres},  
-            {label:"Banco purare",
-            value: response.data.barrioCuatro},  
-            {label:"Betoyes ",
-            value: response.data.barrioCinco}, 
-            {label:"Brisas de satena",
-            value: response.data.barrioSeis},  
-            {label:"Brisas de tamacay",
-            value: response.data.barrioSiete},  
-            {label:"Brisas del cravo",
-            value: response.data.barrioOcho},  
-            {label:"Caño limón",
-            value: response.data.barrioNueve},  
-            {label:"Corocito ",
-            value: response.data.barrioDiez}, 
-            {label:"Caño corozo",
-            value: response.data.barrioDuno},  
-            {label:"El pesebre",
-            value: response.data.barrioDdos},  
-            {label:"El susto",
-            value: response.data.barrioDtres},  
-            {label:"Filipinas",
-            value: response.data.barrioDcuatro},  
-            {label:"La arenosa",
-            value: response.data.barrioDcinco},  
-            {label:"La holanda",
-            value: response.data.barrioDseis},  
-            {label:"La unión",
-            value: response.data.barrioDsiete},  
-            {label:"Lejanías",
-            value: response.data.barrioDocho},  
-            {label:"Marquelandia",
-            value: response.data.barrioDnueve},  
-            {label:" Napoles ",
-            value: response.data.barrioVeinte}, 
-            {label:"Nuevo amanecer",
-            value: response.data.barrioVuno},  
-            {label:"Rincón de la esperanza",
-            value: response.data.barrioVdos},  
-            {label:"Rincón hondo",
-            value: response.data.barrioVtres},  
-            {label:"San antonio",
-            value: response.data.barrioVcuatro},  
-            {label:"San salvador",
-            value: response.data.barrioVcinco},  
-            {label:"Santo domingo caserio",
-            value: response.data.barrioVseis},  
-            {label:"Saparay ",
-            value: response.data.barrioVsiete}, 
-            {label:"Vereda santo domingo",
-            value: response.data.barrioVocho},  
-            ],
-
+    {label:"Alibei",
+    value: response.data.barrioUno},
+    {label:"Acasias II",
+    value: response.data.barrioDos},  
+    {label:"Bajo cusay II",
+    value: response.data.barrioTres},  
+    {label:"Banco purare",
+    value: response.data.barrioCuatro},  
+    {label:"Betoyes ",
+    value: response.data.barrioCinco}, 
+    {label:"Brisas de satena",
+    value: response.data.barrioSeis},  
+    {label:"Brisas de tamacay",
+    value: response.data.barrioSiete},  
+    {label:"Brisas del cravo",
+    value: response.data.barrioOcho},  
+    {label:"Caño limón",
+    value: response.data.barrioNueve},  
+    {label:"Corocito ",
+    value: response.data.barrioDiez}, 
+    {label:"Caño corozo",
+    value: response.data.barrioDuno},  
+    {label:"El pesebre",
+    value: response.data.barrioDdos},  
+    {label:"El susto",
+    value: response.data.barrioDtres},  
+    {label:"Filipinas",
+    value: response.data.barrioDcuatro},  
+    {label:"La arenosa",
+    value: response.data.barrioDcinco},  
+    {label:"La holanda",
+    value: response.data.barrioDseis},  
+    {label:"La unión",
+    value: response.data.barrioDsiete},  
+    {label:"Lejanías",
+    value: response.data.barrioDocho},  
+    {label:"Marquelandia",
+    value: response.data.barrioDnueve},  
+    {label:" Napoles ",
+    value: response.data.barrioVeinte}, 
+    {label:"Nuevo amanecer",
+    value: response.data.barrioVuno},  
+    {label:"Rincón de la esperanza",
+    value: response.data.barrioVdos},  
+    {label:"Rincón hondo",
+    value: response.data.barrioVtres},  
+    {label:"San antonio",
+    value: response.data.barrioVcuatro},  
+    {label:"San salvador",
+    value: response.data.barrioVcinco},  
+    {label:"Santo domingo caserio",
+    value: response.data.barrioVseis},  
+    {label:"Saparay ",
+    value: response.data.barrioVsiete}, 
+    {label:"Vereda santo domingo",
+    value: response.data.barrioVocho},  
+    ],
 
   };
 
@@ -875,7 +874,7 @@ else if (response.data.filtro==5) {
   this.verEdad=false;
   this.verPoblacion=false;
   this.verHorario=true;
-  this.verBarriio=false;
+  this.verBarrio=false;
   this.dataHorario= {
     chart: {
       caption: "Horario de conexión",
@@ -1014,30 +1013,30 @@ else if (response.data.filtro==6) {
   this.verEdad=false;
   this.verPoblacion=false;
   this.verHorario=false;
-  this.verBarriio=false;
+  this.verBarrio=false;
   //Género
-          this.dataGenero= {
-            chart: {
-              caption: "Conexión por género",
-              SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
-              subcaptionFontSize: "17",
-              "subcaptionFontColor": "#333333",
-              "subcaptionFontBold": "0",
-              xaxisname: "",
-              yaxisname: "Cantidad de personas",
-              "thousandSeparator": ".",
-              "numberScaleValue": "1000,1000,1000",
+  this.dataGenero= {
+    chart: {
+      caption: "Conexión por género",
+      SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+      subcaptionFontSize: "17",
+      "subcaptionFontColor": "#333333",
+      "subcaptionFontBold": "0",
+      xaxisname: "",
+      yaxisname: "Cantidad de personas",
+      "thousandSeparator": ".",
+      "numberScaleValue": "1000,1000,1000",
 
 
-              theme: "fusion",
-              exportEnabled:1,
-              "showValues": "1",
-              "rotateValues": "0",
-              "valueFontColor": "#000000",
-              "valueBgColor": "#FFFFFF",
-              "valueBgAlpha": "50",
-              "borderColor": "#666666",
-              "borderThickness": "4",
+      theme: "fusion",
+      exportEnabled:1,
+      "showValues": "1",
+      "rotateValues": "0",
+      "valueFontColor": "#000000",
+      "valueBgColor": "#FFFFFF",
+      "valueBgAlpha": "50",
+      "borderColor": "#666666",
+      "borderThickness": "4",
                 /* color de fondo
                 "bgColor": "#FAFAFA",
                 "bgAlpha": "50",*/
@@ -1067,105 +1066,105 @@ else if (response.data.filtro==6) {
 
             };
 
-  
-}
-else{
+
+          }
+          else{
 
 
-  this.verGenero=false;
-  this.verEdad=false;
-  this.verPoblacion=false;
-  this.verHorario=false;
-  this.verBarriio=false;
+            this.verGenero=false;
+            this.verEdad=false;
+            this.verPoblacion=false;
+            this.verHorario=false;
+            this.verBarrio=false;
 
-}
-this.isLoading = false;
+          }
+          this.isLoading = false;
 
-}) .catch(error => {
- this.isLoading = false;
- _.forEach(error.response.data.errors, function(value, key) {
-  $.toast({
-    heading: '¡Error!',
-    text: value,
-    showHideTransition: 'slide',
-    icon: 'error',
-    loaderBg: '#f2a654',
-    position: 'top-right',
+        }) .catch(error => {
+         this.isLoading = false;
+         _.forEach(error.response.data.errors, function(value, key) {
+          $.toast({
+            heading: '¡Error!',
+            text: value,
+            showHideTransition: 'slide',
+            icon: 'error',
+            loaderBg: '#f2a654',
+            position: 'top-right',
 
-  });
+          });
 
-});
+        });
 
 
-});
+       });
 
-}
+      }
 
-},
-computed: {
+    },
+    computed: {
 
-}
-};
+    }
+  };
 </script>
 <style>
-  .vdpArrowPrev:after {
-    border-right-color: #cc99cd;
-    font-size: 16px;
-  }
+.vdpArrowPrev:after {
+  border-right-color: #cc99cd;
+  font-size: 16px;
+}
 
-  .vdpArrowNext:after {
-    border-left-color: #cc99cd;font-size: 16px;
+.vdpArrowNext:after {
+  border-left-color: #cc99cd;font-size: 16px;
 
-  }
+}
 
 
-  .vdpCell.selectable:hover .vdpCellContent,
-  .vdpCell.selected .vdpCellContent {
-    background: #cc99cd;
-  }
+.vdpCell.selectable:hover .vdpCellContent,
+.vdpCell.selected .vdpCellContent {
+  background: #cc99cd;
+}
 
-  .vdpCell.today {
-    color: white;
-    border-radius: 5px;
-    background: orange;
-  }
+.vdpCell.today {
+  color: white;
+  border-radius: 5px;
+  background: orange;
+}
 
-  .vdpTimeUnit > input:hover,
-  .vdpTimeUnit > input:focus {
-    border-bottom-color: #cc99cd;
+.vdpTimeUnit > input:hover,
+.vdpTimeUnit > input:focus {
+  border-bottom-color: #cc99cd;
 
-  }
-  .vdpComponent{
-    /* position: relative; */
-    display: block;
-    font-size: 10px;
-    color: #303030;
-  }
-  .vdpWithInput>input{
+}
+.vdpComponent{
+  /* position: relative; */
+  display: block;
+  font-size: 10px;
+  color: #303030;
+}
+.vdpWithInput>input{
 
-    position: none;
-    width: 100% !important;
-    height: 35px;
-    padding: .375rem .75rem;
-    font-size: 13px;
+  position: none;
+  width: 100% !important;
+  height: 35px;
+  padding: .375rem .75rem;
+  font-size: 13px;
 
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #eaeaea;
-    border-radius: .25rem;
-  }
-  .calendar-desing > input{
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #eaeaea;
+  border-radius: .25rem;
+}
+.calendar-desing > input{
 
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
-  }
-  .btn-standar{
-    border-radius: 20px;
-    padding: 3px 12px;
-    color: white;
-    box-shadow: 2px 3px 2px #ddd;
-    border: 0;
-    font-size: 14px;
-    cursor: pointer;}
-  </style>
+}
+.btn-standar{
+  border-radius: 20px;
+  padding: 3px 12px;
+  color: white;
+  box-shadow: 2px 3px 2px #ddd;
+  border: 0;
+  font-size: 14px;
+  cursor: pointer;}
+</style>

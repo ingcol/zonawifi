@@ -68,45 +68,45 @@ class FiltroGeneralTameController extends Controller
 
        //Barrio
 
-			$barrioUno=ZonaWifiTame::where('BarrioPersona','Alibei')->count();
-			$barrioDos=ZonaWifiTame::where('BarrioPersona','Acasias II')->count();
+			$barrioUno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Alibei')->count();
+			$barrioDos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Acasias II')->count();
 
-			$barrioTres=ZonaWifiTame::where('BarrioPersona','Bajo cusay II')->count();
-			$barrioCuatro=ZonaWifiTame::where('BarrioPersona','Banco purare')->count();
-			$barrioCinco=ZonaWifiTame::where('BarrioPersona','Betoyes')->count();
-			$barrioSeis=ZonaWifiTame::where('BarrioPersona','Brisas de satena')->count();
-			$barrioSiete=ZonaWifiTame::where('BarrioPersona','Brisas de tamacay')->count();
-			$barrioOcho=ZonaWifiTame::where('BarrioPersona','Brisas del cravo')->count();
+			$barrioTres=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Bajo cusay II')->count();
+			$barrioCuatro=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Banco purare')->count();
+			$barrioCinco=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Betoyes')->count();
+			$barrioSeis=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Brisas de satena')->count();
+			$barrioSiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Brisas de tamacay')->count();
+			$barrioOcho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Brisas del cravo')->count();
 			//Barrio
 
-			$barrioNueve=ZonaWifiTame::where('BarrioPersona','Caño limón')->count();
-			$barrioDiez=ZonaWifiTame::where('BarrioPersona','Corocito')->count();
+			$barrioNueve=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Caño limón')->count();
+			$barrioDiez=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Corocito')->count();
 
-			$barrioDuno=ZonaWifiTame::where('BarrioPersona','Caño corozo')->count();
-			$barrioDdos=ZonaWifiTame::where('BarrioPersona','El pesebre')->count();
-			$barrioDtres=ZonaWifiTame::where('BarrioPersona','El susto')->count();
-			$barrioDcuatro=ZonaWifiTame::where('BarrioPersona','Filipinas')->count();
-			$barrioDcinco=ZonaWifiTame::where('BarrioPersona','La arenosa')->count();
-			$barrioDseis=ZonaWifiTame::where('BarrioPersona','La holanda')->count();
+			$barrioDuno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Caño corozo')->count();
+			$barrioDdos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','El pesebre')->count();
+			$barrioDtres=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','El susto')->count();
+			$barrioDcuatro=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Filipinas')->count();
+			$barrioDcinco=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La arenosa')->count();
+			$barrioDseis=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La holanda')->count();
 			//Barrio
 
-			$barrioDsiete=ZonaWifiTame::where('BarrioPersona','La unión')->count();
-			$barrioDocho=ZonaWifiTame::where('BarrioPersona','Lejanías')->count();
+			$barrioDsiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La unión')->count();
+			$barrioDocho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Lejanías')->count();
 
-			$barrioDnueve=ZonaWifiTame::where('BarrioPersona','Marquelandia')->count();
-			$barrioVeinte=ZonaWifiTame::where('BarrioPersona','Napoles')->count();
-			$barrioVuno=ZonaWifiTame::where('BarrioPersona','Nuevo amanecer')->count();
-			$barrioVdos=ZonaWifiTame::where('BarrioPersona','Rincón de la esperanza')->count();
-			$barrioVtres=ZonaWifiTame::where('BarrioPersona','Rincón hondo')->count();
-			$barrioVcuatro=ZonaWifiTame::where('BarrioPersona','San antonio')->count();
+			$barrioDnueve=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Marquelandia')->count();
+			$barrioVeinte=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Napoles')->count();
+			$barrioVuno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Nuevo amanecer')->count();
+			$barrioVdos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Rincón de la esperanza')->count();
+			$barrioVtres=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Rincón hondo')->count();
+			$barrioVcuatro=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','San antonio')->count();
 
 			//Barrio
 
-			$barrioVcinco=ZonaWifiTame::where('BarrioPersona','San salvador')->count();
-			$barrioVseis=ZonaWifiTame::where('BarrioPersona','Santo domingo caserio')->count();
+			$barrioVcinco=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','San salvador')->count();
+			$barrioVseis=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Santo domingo caserio')->count();
 
-			$barrioVsiete=ZonaWifiTame::where('BarrioPersona','Saparay')->count();
-			$barrioVocho=ZonaWifiTame::where('BarrioPersona','Vereda santo domingo')->count();
+			$barrioVsiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Saparay')->count();
+			$barrioVocho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Vereda santo domingo')->count();
 
 			//Porcentaje
 
@@ -271,16 +271,46 @@ class FiltroGeneralTameController extends Controller
 			
 		}
 		elseif ($request->filtrarDatos=="4") {
-			//Barrio
-			$barrioUno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La floresta')->count();
-			$barrioDos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La virgen')->count();
+			$barrioUno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Alibei')->count();
+			$barrioDos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Acasias II')->count();
 
-			$barrioTres=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','20 de enero')->count();
-			$barrioCuatro=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Flor de mi llano')->count();
-			$barrioCinco=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Barrio nuevo')->count();
-			$barrioSeis=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','San ignacio')->count();
-			$barrioSiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Doble calzada')->count();
-			$barrioOcho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Colegio la inmaculada')->count();
+			$barrioTres=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Bajo cusay II')->count();
+			$barrioCuatro=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Banco purare')->count();
+			$barrioCinco=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Betoyes')->count();
+			$barrioSeis=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Brisas de satena')->count();
+			$barrioSiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Brisas de tamacay')->count();
+			$barrioOcho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Brisas del cravo')->count();
+			//Barrio
+
+			$barrioNueve=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Caño limón')->count();
+			$barrioDiez=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Corocito')->count();
+
+			$barrioDuno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Caño corozo')->count();
+			$barrioDdos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','El pesebre')->count();
+			$barrioDtres=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','El susto')->count();
+			$barrioDcuatro=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Filipinas')->count();
+			$barrioDcinco=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La arenosa')->count();
+			$barrioDseis=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La holanda')->count();
+			//Barrio
+
+			$barrioDsiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La unión')->count();
+			$barrioDocho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Lejanías')->count();
+
+			$barrioDnueve=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Marquelandia')->count();
+			$barrioVeinte=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Napoles')->count();
+			$barrioVuno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Nuevo amanecer')->count();
+			$barrioVdos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Rincón de la esperanza')->count();
+			$barrioVtres=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Rincón hondo')->count();
+			$barrioVcuatro=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','San antonio')->count();
+
+			//Barrio
+
+			$barrioVcinco=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','San salvador')->count();
+			$barrioVseis=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Santo domingo caserio')->count();
+
+			$barrioVsiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Saparay')->count();
+			$barrioVocho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Vereda santo domingo')->count();
+
 			return response()->json([
 				'filtro'=>$request->filtrarDatos,
 				'InicioFiltro'=>$request->fechaInicio,
@@ -292,7 +322,27 @@ class FiltroGeneralTameController extends Controller
 				'barrioCinco'=>$barrioCinco,
 				'barrioSeis'=>$barrioSeis,
 				'barrioSiete'=>$barrioSiete,
-				'barrioOcho'=>$barrioOcho
+				'barrioOcho'=>$barrioOcho,
+				'barrioNueve'=>$barrioNueve,
+				'barrioDiez'=>$barrioDiez,
+				'barrioDuno'=>$barrioDuno,
+				'barrioDdos'=>$barrioDdos,
+				'barrioDtres'=>$barrioDtres,
+				'barrioDcuatro'=>$barrioDcuatro,
+				'barrioDcinco'=>$barrioDcinco,
+				'barrioDseis'=>$barrioDseis,
+				'barrioDsiete'=>$barrioDsiete,
+				'barrioDocho'=>$barrioDocho,
+				'barrioDnueve'=>$barrioDnueve,
+				'barrioVeinte'=>$barrioVeinte,
+				'barrioVuno'=>$barrioVuno,
+				'barrioVdos'=>$barrioVdos,
+				'barrioVtres'=>$barrioVtres,
+				'barrioVcuatro'=>$barrioVcuatro,
+				'barrioVcinco'=>$barrioVcinco,
+				'barrioVseis'=>$barrioVseis,
+				'barrioVsiete'=>$barrioVsiete,
+				'barrioVocho'=>$barrioVocho
 				
 			]);
 		}
