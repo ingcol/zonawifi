@@ -208,6 +208,7 @@
                                             
                                             <a href="listadoConexionTame" class="menu-item">Listado de conexiones</a>
                                             <a href="graficaGeneralTame" class="menu-item">Estadística general</a>
+                                             <a href="{{route('filtroTameGeneral.index')}}" class="menu-item">Filtro general rango de fechas</a>
                                             
 
                                         </div>
