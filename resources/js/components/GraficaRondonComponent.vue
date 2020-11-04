@@ -488,7 +488,7 @@
               "borderThickness": "4",
               "thousandSeparator": ".",
               "numberScaleValue": "1000,1000,1000",
-              paletteColors: '#0075c2,#1aaf5d,#f2c500,#FF5733,#681D0D,#8944CE,#1C95BF,#5F1CBF',
+              paletteColors: '#0075c2,#1aaf5d,#f2c500,#FF5733,#681D0D,#8944CE,#1C95BF,#5F1CBF,#ff0000',
 
             },
             data: [
@@ -523,6 +523,10 @@
             {
               label: "Colegio la inmaculada",
               value: response.data.barrioOcho
+            },
+            {
+              label: "Tachuelo",
+              value: response.data.barrioNueve
             },
 
 

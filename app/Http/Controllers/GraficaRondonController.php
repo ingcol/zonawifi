@@ -82,6 +82,7 @@ class GraficaRondonController extends Controller
 		$barrioSeis=Persona::where('BarrioPersona','San ignacio')->count();
 		$barrioSiete=Persona::where('BarrioPersona','Doble calzada')->count();
 		$barrioOcho=Persona::where('BarrioPersona','Colegio la inmaculada')->count();
+		$barrioNueve=Persona::where('BarrioPersona','Tachuelo')->count();
 
 			//Porcentaje
 
@@ -163,6 +164,7 @@ class GraficaRondonController extends Controller
 			'barrioSeis'=>$barrioSeis,
 			'barrioSiete'=>$barrioSiete,
 			'barrioOcho'=>$barrioOcho,
+			'barrioNueve'=>$barrioNueve,
 			'navegacionCero'=>$navegacionCero,
 			'navegacionUno'=>$navegacionUno,
 			'navegacionDos'=>$navegacionDos,

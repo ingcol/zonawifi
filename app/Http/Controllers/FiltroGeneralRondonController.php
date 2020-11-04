@@ -76,6 +76,7 @@ class FiltroGeneralRondonController extends Controller
 			$barrioSeis=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','San ignacio')->count();
 			$barrioSiete=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Doble calzada')->count();
 			$barrioOcho=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Colegio la inmaculada')->count();
+			$barrioNueve=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Tachuelo')->count();
 
 			//Porcentaje
 
@@ -147,6 +148,7 @@ class FiltroGeneralRondonController extends Controller
 				'barrioSeis'=>$barrioSeis,
 				'barrioSiete'=>$barrioSiete,
 				'barrioOcho'=>$barrioOcho,
+				'barrioNueve'=>$barrioNueve,
 				'navegacionCero'=>$navegacionCero,
 				'navegacionUno'=>$navegacionUno,
 				'navegacionDos'=>$navegacionDos,
@@ -230,6 +232,7 @@ class FiltroGeneralRondonController extends Controller
 			$barrioSeis=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','San ignacio')->count();
 			$barrioSiete=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Doble calzada')->count();
 			$barrioOcho=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Colegio la inmaculada')->count();
+			$barrioNueve=Persona::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Tachuelo')->count();
 			return response()->json([
 				'filtro'=>$request->filtrarDatos,
 				'InicioFiltro'=>$request->fechaInicio,
@@ -241,7 +244,8 @@ class FiltroGeneralRondonController extends Controller
 				'barrioCinco'=>$barrioCinco,
 				'barrioSeis'=>$barrioSeis,
 				'barrioSiete'=>$barrioSiete,
-				'barrioOcho'=>$barrioOcho
+				'barrioOcho'=>$barrioOcho,
+				'barrioNueve'=>$barrioNueve
 				
 			]);
 		}
