@@ -9,21 +9,18 @@ use DB;
 
 class GraficaRondonController extends Controller
 {
+
+	public function __construct()
+    {
+        set_time_limit(8000000);
+    }
+
 	public function index(){
 
 		return view('rondon.grafica.index');
 	}
 
-	public function datosRondon(){
-
-		$fechaActual = Carbon::now();
-
-		$Persona=Persona::get();
-		$totalConexion=Persona::count();
-		$totalDispositivo=$Persona->groupBy('MacPersona')->count();
-		$totalBarrioConectado=$Persona->groupBy('BarrioPersona')->count();
-		return response()->json(['totalConexion'=>$totalConexion,"totalDispositivo"=>$totalDispositivo,"totalBarrioConectado"=>$totalBarrioConectado]);
-	}
+	
 	public function graficaRondon(){
 
 		$fechaActual = Carbon::now();
@@ -33,6 +30,10 @@ class GraficaRondonController extends Controller
 		
 
 		$conexioPersona=Persona::get();
+
+		$totalConexion=Persona::count();
+		$totalDispositivo=$conexioPersona->groupBy('MacPersona')->count();
+		$totalBarrioConectado=$conexioPersona->groupBy('BarrioPersona')->count();
 
 			//Género
 		$femenino=$conexioPersona->where('GeneroPersona','Femenino')->count();
@@ -195,7 +196,10 @@ class GraficaRondonController extends Controller
             'empleado'=>$empleado,
 		    'empresario'=>$empresario,
 		    'independiente'=>$independiente,
-		    'otro'=>$otro
+		    'otro'=>$otro,
+		    'totalConexion'=>$totalConexion,
+		    "totalDispositivo"=>$totalDispositivo,
+		    "totalBarrioConectado"=>$totalBarrioConectado
 		]);
 
 	}

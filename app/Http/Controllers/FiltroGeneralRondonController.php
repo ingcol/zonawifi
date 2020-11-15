@@ -9,6 +9,11 @@ use DB;
 
 class FiltroGeneralRondonController extends Controller
 {
+	public function __construct()
+    {
+        set_time_limit(8000000);
+    }
+
 	public function index(){
 		return view('filtro_rondon.filtro_general.index');
 	}

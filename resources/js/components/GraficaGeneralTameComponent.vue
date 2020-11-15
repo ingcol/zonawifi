@@ -3,7 +3,7 @@
     <div>
       <div class="container-fluid pt-3">
 
-        <h4 class="text-center">Estadística zonas wifi de Tame</h4>
+        <h4 class="text-center">Estadística zonas wifi de Tame <a @click="getDatos()">ver</a> </h4>
         <hr>
         <div class="row pt-4 bg-white">
 
@@ -163,18 +163,10 @@
     import LineChart from './LineChart.js'
     export default {
       mounted () {
-        this.isLoading = true;
-        setTimeout(() => {
-          this.isLoading = false
-        },8000)
-        //this.fillData();
-        this.getGeneros();
-        this.datosBeneficiario();
-        this.getEdades();
-        this.getBarrio();
-        this.getPoblacion();
-        this.getHorario();
-        this.getOcupaciones();
+
+
+        this.getDatos();
+
 
 
       },
@@ -190,7 +182,7 @@
           //eda
           tipoEdad: "column2d",
           heightBarrio: "680",
-         
+
           tipoBarrio: "bar2d",
 
 
@@ -233,37 +225,32 @@
       },
       methods: {
 
-        datosBeneficiario(){
-          axios.get('api/datosTameGeneral').then(response=>{
-            this.totalConexion = response.data.totalConexion;
-            this.totalBarrioConectado=response.data.totalBarrioConectado;
-            this.totalDispositivo=response.data.totalDispositivo;
-          })
+        getDatos(){
+         this.isLoading = true;
+         axios.get('api/graficaGeneralTame').then(response=>{
 
-        },
+           this.totalConexion = response.data.totalConexion;
+           this.totalBarrioConectado=response.data.totalBarrioConectado;
+           this.totalDispositivo=response.data.totalDispositivo;
+           this.dataOcupacion= {
+            chart: {
+              caption: "Conexión por ocupación",
 
-        getOcupaciones(){
-
-          axios.get('api/graficaGeneralTame').then(response=>{
-            this.dataOcupacion= {
-              chart: {
-                caption: "Conexión por ocupación",
-
-                xaxisname: "",
-                yaxisname: "Cantidad de personas",
-                "thousandSeparator": ".",
-                "numberScaleValue": "1000,1000,1000",
+              xaxisname: "",
+              yaxisname: "Cantidad de personas",
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
 
 
-                theme: "fusion",
-                exportEnabled:1,
-                "showValues": "1",
-                "rotateValues": "0",
-                "valueFontColor": "#000000",
-                "valueBgColor": "#FFFFFF",
-                "valueBgAlpha": "50",
-                "borderColor": "#666666",
-                "borderThickness": "4",
+              theme: "fusion",
+              exportEnabled:1,
+              "showValues": "1",
+              "rotateValues": "0",
+              "valueFontColor": "#000000",
+              "valueBgColor": "#FFFFFF",
+              "valueBgAlpha": "50",
+              "borderColor": "#666666",
+              "borderThickness": "4",
                 /* color de fondo
                 "bgColor": "#FAFAFA",
                 "bgAlpha": "50",*/
@@ -305,12 +292,7 @@
               ],
 
             };
-          });
-        },
-        
-        getGeneros(){
-
-          axios.get('api/graficaGeneralTame').then(response=>{
+            //GÉNEROS
             this.dataGenero= {
               chart: {
                 caption: "Conexión por género",
@@ -359,69 +341,57 @@
               ],
 
             };
-          });
-        },
+            //POBLACIÓN
+            this.dataPoblacion= {
+              chart: {
+                caption: "Conexión por tipo de población",
 
-        getPoblacion(){
+                xaxisname: "",
+                yaxisname: "Cantidad de personas",
 
-         axios.get('api/graficaGeneralTame').then(response=>{
-          this.dataPoblacion= {
-            chart: {
-              caption: "Conexión por tipo de población",
-
-              xaxisname: "",
-              yaxisname: "Cantidad de personas",
-
-              theme: "fusion",
-              exportEnabled:1,
-              "showValues": "1",
-              "rotateValues": "0",
-              "valueFontColor": "#000000",
-              "valueBgColor": "#FFFFFF",
-              "valueBgAlpha": "50",
-              "borderColor": "#666666",
-              "borderThickness": "4",
-              "thousandSeparator": ".",
-              "numberScaleValue": "1000,1000,1000",
-               paletteColors: '#5F1CBF,#FF5733,#1aaf5f,#f2c500,#681D0D,#8944CE,#1C95BF',
+                theme: "fusion",
+                exportEnabled:1,
+                "showValues": "1",
+                "rotateValues": "0",
+                "valueFontColor": "#000000",
+                "valueBgColor": "#FFFFFF",
+                "valueBgAlpha": "50",
+                "borderColor": "#666666",
+                "borderThickness": "4",
+                "thousandSeparator": ".",
+                "numberScaleValue": "1000,1000,1000",
+                paletteColors: '#5F1CBF,#FF5733,#1aaf5f,#f2c500,#681D0D,#8944CE,#1C95BF',
 
 
-            },
-            data: [
-            {
-              label: "No aplica",
-              value: response.data.poblacionNinguna
-            },
-            {
-              label: "Víctima del conflicto",
-              value: response.data.poblacionVictima
-            },
-            {
-              label: "Afrocolombianos",
-              value: response.data.poblacionAfrocolombia
-            },
-            {
-              label: "Comunidad indígena",
-              value: response.data.poblacionIndigena
-            },
-            {
-              label: "Adulto mayor",
-              value: response.data.poblacionMayor
-            },
+              },
+              data: [
+              {
+                label: "No aplica",
+                value: response.data.poblacionNinguna
+              },
+              {
+                label: "Víctima del conflicto",
+                value: response.data.poblacionVictima
+              },
+              {
+                label: "Afrocolombianos",
+                value: response.data.poblacionAfrocolombia
+              },
+              {
+                label: "Comunidad indígena",
+                value: response.data.poblacionIndigena
+              },
+              {
+                label: "Adulto mayor",
+                value: response.data.poblacionMayor
+              },
 
 
-            ],
+              ],
 
-          };
-        });
+            };
+          //Edades
 
-       },
-
-
-
-       getEdades ()
-       {
-        axios.get('api/graficaGeneralTame').then(response=>{
           this.dataEdad= {
             chart: {
               caption: "Conexión por rango de  edad",
@@ -472,12 +442,7 @@
             ],
 
           };
-        });
-
-      },
-      getBarrio(){
-
-        axios.get('api/graficaGeneralTame').then(response=>{
+          //BARRIOS
           this.dataBarrio= {
             chart: {
               caption: "Conexión por zona",
@@ -497,7 +462,7 @@
               "thousandSeparator": ".",
               "numberScaleValue": "1000,1000,1000",
               paletteColors: '#1aaf5d',
-             
+
 
             },
             data: [
@@ -562,140 +527,144 @@
             ],
 
           };
-        });
-      },
+          //HORARIOS
+          this.dataHorario= {
+            chart: {
+              caption: "Horario de conexión",
 
-      getHorario(){
+              xaxisname: "",
+              yaxisname: "Cantidad de personas",
 
-       axios.get('api/graficaGeneralTame').then(response=>{
-        this.dataHorario= {
-          chart: {
-            caption: "Horario de conexión",
-
-            xaxisname: "",
-            yaxisname: "Cantidad de personas",
-
-            theme: "fusion",
-            exportEnabled:1,
-            "showValues": "1",
-            "rotateValues": "0",
-            "valueFontColor": "#000000",
-            "valueBgColor": "#FFFFFF",
-            "valueBgAlpha": "50",
-            "borderColor": "#666666",
-            "borderThickness": "4",
-            "thousandSeparator": ".",
-            "numberScaleValue": "1000,1000,1000",
+              theme: "fusion",
+              exportEnabled:1,
+              "showValues": "1",
+              "rotateValues": "0",
+              "valueFontColor": "#000000",
+              "valueBgColor": "#FFFFFF",
+              "valueBgAlpha": "50",
+              "borderColor": "#666666",
+              "borderThickness": "4",
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
 
 
-          },
-          data: [
-          {
-            label: "12  AM",
-            value: response.data.navegacionCero
-          },
-          {
-            label: "1",
-            value: response.data.navegacionUno
-          },
-          {
-            label: "2",
-            value: response.data.navegacionDos
-          },
-          {
-            label: "3",
-            value: response.data.navegacionTres
-          },
-          {
-            label: "4",
-            value: response.data.navegacionCuatro
-          },
-          {
-            label: "5",
-            value: response.data.navegacionCinco
-          },
-          {
-            label: "6",
-            value: response.data.navegacionSeis
-          },
-          {
-            label: "7",
-            value: response.data.navegacionSiete
-          },
-          {
-            label: "8",
-            value: response.data.navegacionOcho
-          },
-          {
-            label: "9",
-            value: response.data.navegacionNueve
-          },
-          {
-            label: "10",
-            value: response.data.navegacionDiez
-          },
-          {
-            label: "11",
-            value: response.data.navegacionDuno
-          },
-          {
-            label: "12  PM",
-            value: response.data.navegacionDdos
-          },
-          {
-            label: "1",
-            value: response.data.navegacionDtres
-          },
-          {
-            label: "2",
-            value: response.data.navegacionDcuatro
-          },{
-            label: "3",
-            value: response.data.navegacionDquinto
-          },
-          {
-            label: "4",
-            value: response.data.navegacionDsexto
-          },
-          {
-            label: "5",
-            value: response.data.navegacionDseptimo
-          },
-          {
-            label: "6",
-            value: response.data.navegacionDoctavo
-          },
-          {
-            label: "7",
-            value: response.data.navegacionDnoveno
-          },{
-            label: "8",
-            value: response.data.navegacionVeinte
-          },
-          {
-            label: "9",
-            value: response.data.navegacionVuno
-          },
-          {
-            label: "10",
-            value: response.data.navegacionVdos
-          },
-          {
-            label: "11",
-            value: response.data.navegacionVtres
-          },
+            },
+            data: [
+            {
+              label: "12  AM",
+              value: response.data.navegacionCero
+            },
+            {
+              label: "1",
+              value: response.data.navegacionUno
+            },
+            {
+              label: "2",
+              value: response.data.navegacionDos
+            },
+            {
+              label: "3",
+              value: response.data.navegacionTres
+            },
+            {
+              label: "4",
+              value: response.data.navegacionCuatro
+            },
+            {
+              label: "5",
+              value: response.data.navegacionCinco
+            },
+            {
+              label: "6",
+              value: response.data.navegacionSeis
+            },
+            {
+              label: "7",
+              value: response.data.navegacionSiete
+            },
+            {
+              label: "8",
+              value: response.data.navegacionOcho
+            },
+            {
+              label: "9",
+              value: response.data.navegacionNueve
+            },
+            {
+              label: "10",
+              value: response.data.navegacionDiez
+            },
+            {
+              label: "11",
+              value: response.data.navegacionDuno
+            },
+            {
+              label: "12  PM",
+              value: response.data.navegacionDdos
+            },
+            {
+              label: "1",
+              value: response.data.navegacionDtres
+            },
+            {
+              label: "2",
+              value: response.data.navegacionDcuatro
+            },{
+              label: "3",
+              value: response.data.navegacionDquinto
+            },
+            {
+              label: "4",
+              value: response.data.navegacionDsexto
+            },
+            {
+              label: "5",
+              value: response.data.navegacionDseptimo
+            },
+            {
+              label: "6",
+              value: response.data.navegacionDoctavo
+            },
+            {
+              label: "7",
+              value: response.data.navegacionDnoveno
+            },{
+              label: "8",
+              value: response.data.navegacionVeinte
+            },
+            {
+              label: "9",
+              value: response.data.navegacionVuno
+            },
+            {
+              label: "10",
+              value: response.data.navegacionVdos
+            },
+            {
+              label: "11",
+              value: response.data.navegacionVtres
+            },
 
 
 
-          ],
+            ],
 
-        };
-      });
+          };
+          this.isLoading = false;
+        }).catch(errors => {
+    this.isLoading = false
+  })
 
-     },
+},
 
-   }
- };
+
+
+
+
+
+
+}
+};
 </script>
 <style>
 .bg-home{

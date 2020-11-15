@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class InformeController extends Controller
 {
+	public function __construct()
+    {
+        set_time_limit(8000000);
+    }
+
 	public function index(){
 		return view('informe.listado.index');
 	}

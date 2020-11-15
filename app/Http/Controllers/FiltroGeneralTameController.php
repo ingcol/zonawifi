@@ -10,6 +10,12 @@ use DB;
 
 class FiltroGeneralTameController extends Controller
 {
+
+	public function __construct()
+    {
+        set_time_limit(8000000);
+    }
+
 	public function index(){
 		return view('filtro_tame.filtro_general.index');
 	}

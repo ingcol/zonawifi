@@ -9,26 +9,29 @@ use DB;
 
 class GraficaGeneralTameController extends Controller
 {
+
+	public function __construct()
+    {
+        set_time_limit(8000000);
+    }
+
 	public function index(){
 
 		return view('tame.grafica_general.index');
 	}
 
-	public function datosTameGeneral(){
-
-		$fechaActual = Carbon::now();
-
-		$Persona=ZonaWifiTame::get();
-		$totalConexion=ZonaWifiTame::count();
-		$totalDispositivo=$Persona->groupBy('MacPersona')->count();
-		$totalBarrioConectado=$Persona->groupBy('BarrioPersona')->count();
-		return response()->json(['totalConexion'=>$totalConexion,"totalDispositivo"=>$totalDispositivo,"totalBarrioConectado"=>$totalBarrioConectado]);
-	}
+	
 	public function graficaGeneralTame(){
 
 		$fechaActual = Carbon::now();
 		
 		$conexioPersona=ZonaWifiTame::get();
+
+
+		
+		$totalConexion=ZonaWifiTame::count();
+		$totalDispositivo=$conexioPersona->groupBy('MacPersona')->count();
+		$totalBarrioConectado=$conexioPersona->groupBy('BarrioPersona')->count();
     
 		
 //Ocupación
@@ -230,7 +233,10 @@ class GraficaGeneralTameController extends Controller
             'empleado'=>$empleado,
 		    'empresario'=>$empresario,
 		    'independiente'=>$independiente,
-		    'otro'=>$otro
+		    'otro'=>$otro,
+		    'totalConexion'=>$totalConexion,
+		    "totalDispositivo"=>$totalDispositivo,
+		    "totalBarrioConectado"=>$totalBarrioConectado
 		]);
 
 	}

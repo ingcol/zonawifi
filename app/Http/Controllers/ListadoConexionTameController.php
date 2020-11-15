@@ -7,6 +7,11 @@ use App\ZonaWifiTame;
 
 class ListadoConexionTameController extends Controller
 {
+    public function __construct()
+    {
+        set_time_limit(8000000);
+    }
+
     public function index(){
 
     	return view('tame.listado.index');
