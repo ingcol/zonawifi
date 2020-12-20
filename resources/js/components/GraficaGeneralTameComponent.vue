@@ -3,7 +3,7 @@
     <div>
       <div class="container-fluid pt-3">
 
-        <h4 class="text-center">Estadística zonas wifi de Tame <a @click="getDatos()">ver</a> </h4>
+        <h4 class="text-center">Estadística zonas wifi de Tame </h4>
         <hr>
         <div class="row pt-4 bg-white">
 

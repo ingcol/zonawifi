@@ -29,7 +29,7 @@ class GraficaGeneralTameController extends Controller
 
 
 		
-		$totalConexion=ZonaWifiTame::count();
+		$totalConexion=$conexioPersona->count();
 		$totalDispositivo=$conexioPersona->groupBy('MacPersona')->count();
 		$totalBarrioConectado=$conexioPersona->groupBy('BarrioPersona')->count();
     
@@ -54,66 +54,66 @@ class GraficaGeneralTameController extends Controller
 		$lgtbi=$conexioPersona->where('GeneroPersona','LGTBI')->count();
 
        //Por edades
-		$rangoUnoEdad=ZonaWifiTame::where('EdadPersona','>=',5)->where('EdadPersona','<=',20)->count();
-		$rangoDosEdad=ZonaWifiTame::where('EdadPersona','>=',21)->where('EdadPersona','<=',30)->count();
-		$rangoTresEdad=ZonaWifiTame::where('EdadPersona','>=',31)->where('EdadPersona','<=',40)->count();
-		$rangoCuatroEdad=ZonaWifiTame::where('EdadPersona','>=',41)->where('EdadPersona','<=',50)->count();
-		$rangoCincoEdad=ZonaWifiTame::where('EdadPersona','>=',51)->count();
+		$rangoUnoEdad=$conexioPersona->where('EdadPersona','>=',5)->where('EdadPersona','<=',20)->count();
+		$rangoDosEdad=$conexioPersona->where('EdadPersona','>=',21)->where('EdadPersona','<=',30)->count();
+		$rangoTresEdad=$conexioPersona->where('EdadPersona','>=',31)->where('EdadPersona','<=',40)->count();
+		$rangoCuatroEdad=$conexioPersona->where('EdadPersona','>=',41)->where('EdadPersona','<=',50)->count();
+		$rangoCincoEdad=$conexioPersona->where('EdadPersona','>=',51)->count();
 
        //Poblacción
 
-		$poblacionNinguna=ZonaWifiTame::where('PoblacionPersona','Ninguna')->count();
-		$poblacionVictima=ZonaWifiTame::where('PoblacionPersona','Víctimas del conflicto armado')->count();
+		$poblacionNinguna=$conexioPersona->where('PoblacionPersona','Ninguna')->count();
+		$poblacionVictima=$conexioPersona->where('PoblacionPersona','Víctimas del conflicto armado')->count();
 
-		$poblacionAfrocolombia=ZonaWifiTame::where('PoblacionPersona','Afrocolombiano')->count();
-		$poblacionIndigena=ZonaWifiTame::where('PoblacionPersona','Comunidades indígenas')->count();
-		$poblacionMayor=ZonaWifiTame::where('PoblacionPersona','Adulto mayor')->count();
+		$poblacionAfrocolombia=$conexioPersona->where('PoblacionPersona','Afrocolombiano')->count();
+		$poblacionIndigena=$conexioPersona->where('PoblacionPersona','Comunidades indígenas')->count();
+		$poblacionMayor=$conexioPersona->where('PoblacionPersona','Adulto mayor')->count();
 
        //Barrio
 
-		$barrioUno=ZonaWifiTame::where('BarrioPersona','Alibei')->count();
-		$barrioDos=ZonaWifiTame::where('BarrioPersona','Acasias II')->count();
+		$barrioUno=$conexioPersona->where('BarrioPersona','Alibei')->count();
+		$barrioDos=$conexioPersona->where('BarrioPersona','Acasias II')->count();
 
-		$barrioTres=ZonaWifiTame::where('BarrioPersona','Bajo cusay II')->count();
-		$barrioCuatro=ZonaWifiTame::where('BarrioPersona','Banco purare')->count();
-		$barrioCinco=ZonaWifiTame::where('BarrioPersona','Betoyes')->count();
-		$barrioSeis=ZonaWifiTame::where('BarrioPersona','Brisas de satena')->count();
-		$barrioSiete=ZonaWifiTame::where('BarrioPersona','Brisas de tamacay')->count();
-		$barrioOcho=ZonaWifiTame::where('BarrioPersona','Brisas del cravo')->count();
+		$barrioTres=$conexioPersona->where('BarrioPersona','Bajo cusay II')->count();
+		$barrioCuatro=$conexioPersona->where('BarrioPersona','Banco purare')->count();
+		$barrioCinco=$conexioPersona->where('BarrioPersona','Betoyes')->count();
+		$barrioSeis=$conexioPersona->where('BarrioPersona','Brisas de satena')->count();
+		$barrioSiete=$conexioPersona->where('BarrioPersona','Brisas de tamacay')->count();
+		$barrioOcho=$conexioPersona->where('BarrioPersona','Brisas del cravo')->count();
 			//Barrio
 
-		$barrioNueve=ZonaWifiTame::where('BarrioPersona','Caño limón')->count();
-		$barrioDiez=ZonaWifiTame::where('BarrioPersona','Corocito')->count();
+		$barrioNueve=$conexioPersona->where('BarrioPersona','Caño limón')->count();
+		$barrioDiez=$conexioPersona->where('BarrioPersona','Corocito')->count();
 
-		$barrioDuno=ZonaWifiTame::where('BarrioPersona','Caño corozo')->count();
-		$barrioDdos=ZonaWifiTame::where('BarrioPersona','El pesebre')->count();
-		$barrioDtres=ZonaWifiTame::where('BarrioPersona','El susto')->count();
-		$barrioDcuatro=ZonaWifiTame::where('BarrioPersona','Filipinas')->count();
-		$barrioDcinco=ZonaWifiTame::where('BarrioPersona','La arenosa')->count();
-		$barrioDseis=ZonaWifiTame::where('BarrioPersona','La holanda')->count();
+		$barrioDuno=$conexioPersona->where('BarrioPersona','Caño corozo')->count();
+		$barrioDdos=$conexioPersona->where('BarrioPersona','El pesebre')->count();
+		$barrioDtres=$conexioPersona->where('BarrioPersona','El susto')->count();
+		$barrioDcuatro=$conexioPersona->where('BarrioPersona','Filipinas')->count();
+		$barrioDcinco=$conexioPersona->where('BarrioPersona','La arenosa')->count();
+		$barrioDseis=$conexioPersona->where('BarrioPersona','La holanda')->count();
 			//Barrio
 
-		$barrioDsiete=ZonaWifiTame::where('BarrioPersona','La unión')->count();
-		$barrioDocho=ZonaWifiTame::where('BarrioPersona','Lejanías')->count();
+		$barrioDsiete=$conexioPersona->where('BarrioPersona','La unión')->count();
+		$barrioDocho=$conexioPersona->where('BarrioPersona','Lejanías')->count();
 
-		$barrioDnueve=ZonaWifiTame::where('BarrioPersona','Marquelandia')->count();
-		$barrioVeinte=ZonaWifiTame::where('BarrioPersona','Napoles')->count();
-		$barrioVuno=ZonaWifiTame::where('BarrioPersona','Nuevo amanecer')->count();
-		$barrioVdos=ZonaWifiTame::where('BarrioPersona','Rincón de la esperanza')->count();
-		$barrioVtres=ZonaWifiTame::where('BarrioPersona','Rincón hondo')->count();
-		$barrioVcuatro=ZonaWifiTame::where('BarrioPersona','San antonio')->count();
+		$barrioDnueve=$conexioPersona->where('BarrioPersona','Marquelandia')->count();
+		$barrioVeinte=$conexioPersona->where('BarrioPersona','Napoles')->count();
+		$barrioVuno=$conexioPersona->where('BarrioPersona','Nuevo amanecer')->count();
+		$barrioVdos=$conexioPersona->where('BarrioPersona','Rincón de la esperanza')->count();
+		$barrioVtres=$conexioPersona->where('BarrioPersona','Rincón hondo')->count();
+		$barrioVcuatro=$conexioPersona->where('BarrioPersona','San antonio')->count();
 
 			//Barrio
 
-		$barrioVcinco=ZonaWifiTame::where('BarrioPersona','San salvador')->count();
-		$barrioVseis=ZonaWifiTame::where('BarrioPersona','Santo domingo caserio')->count();
+		$barrioVcinco=$conexioPersona->where('BarrioPersona','San salvador')->count();
+		$barrioVseis=$conexioPersona->where('BarrioPersona','Santo domingo caserio')->count();
 
-		$barrioVsiete=ZonaWifiTame::where('BarrioPersona','Saparay')->count();
-		$barrioVocho=ZonaWifiTame::where('BarrioPersona','Vereda santo domingo')->count();
+		$barrioVsiete=$conexioPersona->where('BarrioPersona','Saparay')->count();
+		$barrioVocho=$conexioPersona->where('BarrioPersona','Vereda santo domingo')->count();
 
 		//Porcentaje
 
-		$personaCount=ZonaWifiTame::count();
+		$personaCount=$conexioPersona->count();
 
 
 		//Horarios
