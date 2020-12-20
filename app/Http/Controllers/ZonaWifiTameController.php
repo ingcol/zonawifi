@@ -42,6 +42,9 @@ class ZonaWifiTameController extends Controller
 
   ];
 
+
+  /*
+
    $this->validate($request, $rules, $messages);
     $datoPersona=new ZonaWifiTame;
     $datoPersona->NombrePersona=$request->nombrePersona;
@@ -56,6 +59,7 @@ class ZonaWifiTameController extends Controller
 
     $datoPersona->save();
     return $datoPersona;
+    */
 
 
 
