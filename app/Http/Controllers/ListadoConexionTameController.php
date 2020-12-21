@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ZonaWifiTame;
-
+use DB;
 class ListadoConexionTameController extends Controller
 {
     public function __construct()
@@ -20,8 +20,9 @@ class ListadoConexionTameController extends Controller
     public function listadoConexiones(Request $request){
     	
 
-		$persona=ZonaWifiTame::orderBy('created_at','desc')->get();
+		$persona = DB::table('tamezonas')->orderBy('created_at','desc')->get();
 		$personaCantidad=$persona->count();
+        
 		return response()->json(['persona' => $persona, 'personaCantidad' => $personaCantidad]);
 
 

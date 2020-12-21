@@ -285,7 +285,7 @@
               },
               {
                 label: "Otro",
-                value: response.data.otro
+                value: response.data.otroPersona
               },
 
 

@@ -42,24 +42,65 @@ class ZonaWifiTameController extends Controller
 
   ];
 
-
-  /*
-
    $this->validate($request, $rules, $messages);
     $datoPersona=new ZonaWifiTame;
     $datoPersona->NombrePersona=$request->nombrePersona;
     $datoPersona->EdadPersona=$request->edadPersona;
     $datoPersona->GeneroPersona=$request->generoPersona;
     $datoPersona->BarrioPersona=$request->barrioPersona;
-    $datoPersona->OcupacionPersona=$request->ocupacionPersona;
+    
+
+    if ($request->ocupacionPersona=="amaDeCasa") {
+
+      $datoPersona->OcupacionPersona="amaDeCasaPersona"
+
+         
+    }
+    elseif ($request->ocupacionPersona=="estudiante") {
+
+      $datoPersona->OcupacionPersona="estudiantePersona"
+
+         
+    }
+    elseif ($request->ocupacionPersona=="desempleado") {
+
+      $datoPersona->OcupacionPersona="desempleadoPersona"
+
+         
+    }
+    elseif ($request->ocupacionPersona=="empleado") {
+
+      $datoPersona->OcupacionPersona="empleadoPersona"
+
+         
+    }
+    elseif ($request->ocupacionPersona=="empresario") {
+
+      $datoPersona->OcupacionPersona="empresarioPersona"
+
+         
+    }
+    elseif ($request->ocupacionPersona=="independiente") {
+
+      $datoPersona->OcupacionPersona="independientePersona"
+
+         
+    }
+    else{
+      $datoPersona->OcupacionPersona="otroPersona"
+
+    }
+
+
+
+
     $datoPersona->PoblacionPersona=$request->poblacionPersona;
     $datoPersona->MacPersona=$request->macPersona;
     $datoPersona->NacionalidadPersona=$request->nacionalidadPersona;
 
 
-    $datoPersona->save();
+    //$datoPersona->save();
     return $datoPersona;
-    */
 
 
 

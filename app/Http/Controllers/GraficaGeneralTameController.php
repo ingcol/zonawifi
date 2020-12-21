@@ -25,7 +25,8 @@ class GraficaGeneralTameController extends Controller
 
 		$fechaActual = Carbon::now();
 		
-		$conexioPersona=ZonaWifiTame::get();
+		$conexioPersona=DB::table('tamezonas')->get();
+		//return($ocupacionTotal=$conexioPersona->groupBy('OcupacionPersona'));
 
 
 		
@@ -35,15 +36,16 @@ class GraficaGeneralTameController extends Controller
     
 		
 //Ocupación
-		$ocupacionTotal=$conexioPersona->groupBy('OcupacionPersona');
-		$amaDeCasa=$conexioPersona->where('OcupacionPersona','amaDeCasa')->count();
-		$estudiante=$conexioPersona->where('OcupacionPersona','estudiante')->count();
-		$desempleado=$conexioPersona->where('OcupacionPersona','desempleado')->count();
+		
+		$amaDeCasa=$conexioPersona->where('OcupacionPersona','amaDeCasaPersona')->count();
+		$estudiante=$conexioPersona->where('OcupacionPersona','estudiantePersona')->count();
+		$desempleado=$conexioPersona->where('OcupacionPersona','desempleadoPersona')->count();
 
-		$empleado=$conexioPersona->where('OcupacionPersona','empleado')->count();
-		$empresario=$conexioPersona->where('OcupacionPersona','empresario')->count();
-		$independiente=$conexioPersona->where('OcupacionPersona','independiente')->count();
-		$otro=$conexioPersona->where('OcupacionPersona','otro')->count();
+		$empleado=$conexioPersona->where('OcupacionPersona','empleadoPersona')->count();
+		$empresario=$conexioPersona->where('OcupacionPersona','empresarioPersona')->count();
+		$independiente=$conexioPersona->where('OcupacionPersona','independientePersona')->count();
+		$otroPersona=$conexioPersona->where('OcupacionPersona','otroPersona')->count();
+
 
 
 		//Género
@@ -118,43 +120,43 @@ class GraficaGeneralTameController extends Controller
 
 		//Horarios
 		$FechaActual= Carbon::now();
-		$navegacionCero=ZonaWifiTame::where(DB::raw('hour(created_at)'),0)->count();
+		$navegacionCero=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),0)->count();
 
 
-		$navegacionUno=ZonaWifiTame::where(DB::raw('hour(created_at)'),1)->count();
-		$navegacionDos=ZonaWifiTame::where(DB::raw('hour(created_at)'),2)->count();
+		$navegacionUno=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),1)->count();
+		$navegacionDos=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),2)->count();
 
-		$navegacionTres=ZonaWifiTame::where(DB::raw('hour(created_at)'),3)->count();
-		$navegacionCuatro=ZonaWifiTame::where(DB::raw('hour(created_at)'),4)->count();
+		$navegacionTres=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),3)->count();
+		$navegacionCuatro=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),4)->count();
 
-		$navegacionCinco=ZonaWifiTame::where(DB::raw('hour(created_at)'),5)->count();
-		$navegacionSeis=ZonaWifiTame::where(DB::raw('hour(created_at)'),6)->count();
+		$navegacionCinco=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),5)->count();
+		$navegacionSeis=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),6)->count();
 
-		$navegacionSiete=ZonaWifiTame::where(DB::raw('hour(created_at)'),7)->count();
-		$navegacionOcho=ZonaWifiTame::where(DB::raw('hour(created_at)'),8)->count();
+		$navegacionSiete=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),7)->count();
+		$navegacionOcho=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),8)->count();
 
-		$navegacionNueve=ZonaWifiTame::where(DB::raw('hour(created_at)'),9)->count();
-		$navegacionDiez=ZonaWifiTame::where(DB::raw('hour(created_at)'),10)->count();
+		$navegacionNueve=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),9)->count();
+		$navegacionDiez=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),10)->count();
 
-		$navegacionDuno=ZonaWifiTame::where(DB::raw('hour(created_at)'),11)->count();
-		$navegacionDdos=ZonaWifiTame::where(DB::raw('hour(created_at)'),12)->count();
+		$navegacionDuno=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),11)->count();
+		$navegacionDdos=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),12)->count();
 
-		$navegacionDtres=ZonaWifiTame::where(DB::raw('hour(created_at)'),13)->count();
-		$navegacionDcuatro=ZonaWifiTame::where(DB::raw('hour(created_at)'),14)->count();
+		$navegacionDtres=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),13)->count();
+		$navegacionDcuatro=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),14)->count();
 
-		$navegacionDquinto=ZonaWifiTame::where(DB::raw('hour(created_at)'),15)->count();
-		$navegacionDsexto=ZonaWifiTame::where(DB::raw('hour(created_at)'),16)->count();
+		$navegacionDquinto=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),15)->count();
+		$navegacionDsexto=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),16)->count();
 
-		$navegacionDseptimo=ZonaWifiTame::where(DB::raw('hour(created_at)'),17)->count();
-		$navegacionDoctavo=ZonaWifiTame::where(DB::raw('hour(created_at)'),18)->count();
+		$navegacionDseptimo=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),17)->count();
+		$navegacionDoctavo=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),18)->count();
 
-		$navegacionDnoveno=ZonaWifiTame::where(DB::raw('hour(created_at)'),19)->count();
-		$navegacionVeinte=ZonaWifiTame::where(DB::raw('hour(created_at)'),20)->count();
+		$navegacionDnoveno=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),19)->count();
+		$navegacionVeinte=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),20)->count();
 
-		$navegacionVuno=ZonaWifiTame::where(DB::raw('hour(created_at)'),21)->count();
-		$navegacionVdos=ZonaWifiTame::where(DB::raw('hour(created_at)'),22)->count();
+		$navegacionVuno=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),21)->count();
+		$navegacionVdos=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),22)->count();
 
-		$navegacionVtres=ZonaWifiTame::where(DB::raw('hour(created_at)'),23)->count();
+		$navegacionVtres=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),23)->count();
 
 
 
@@ -233,7 +235,7 @@ class GraficaGeneralTameController extends Controller
             'empleado'=>$empleado,
 		    'empresario'=>$empresario,
 		    'independiente'=>$independiente,
-		    'otro'=>$otro,
+		    'otroPersona'=>$otroPersona,
 		    'totalConexion'=>$totalConexion,
 		    "totalDispositivo"=>$totalDispositivo,
 		    "totalBarrioConectado"=>$totalBarrioConectado
