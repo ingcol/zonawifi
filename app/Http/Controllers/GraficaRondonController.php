@@ -29,61 +29,61 @@ class GraficaRondonController extends Controller
 
 		
 
-		$conexioPersona=Persona::get();
+		$conexioPersona=DB::table('personas')->get();
 
-		$totalConexion=Persona::count();
+		$totalConexion=$conexioPersona->count();
 		$totalDispositivo=$conexioPersona->groupBy('MacPersona')->count();
 		$totalBarrioConectado=$conexioPersona->groupBy('BarrioPersona')->count();
 
 			//Género
-		$femenino=$conexioPersona->where('GeneroPersona','Femenino')->count();
-		$masculino=$conexioPersona->where('GeneroPersona','Masculino')->count();
-		$otro=$conexioPersona->where('GeneroPersona','Otro')->count();
-		$lgtbi=$conexioPersona->where('GeneroPersona','LGTBI')->count();
+		$femenino=DB::table('personas')->where('GeneroPersona','Femenino')->count();
+		$masculino=DB::table('personas')->where('GeneroPersona','Masculino')->count();
+		$otro=DB::table('personas')->where('GeneroPersona','Otro')->count();
+		$lgtbi=DB::table('personas')->where('GeneroPersona','LGTBI')->count();
 
 			//Ocupación
 
-		$ocupacionTotal=$conexioPersona->groupBy('OcupacionPersona');
-		$amaDeCasa=$conexioPersona->where('OcupacionPersona','amaDeCasa')->count();
-		$estudiante=$conexioPersona->where('OcupacionPersona','estudiante')->count();
-		$desempleado=$conexioPersona->where('OcupacionPersona','desempleado')->count();
+		//$ocupacionTotal=$conexioPersona->groupBy('OcupacionPersona');
+		$amaDeCasa=DB::table('personas')->where('OcupacionPersona','amaDeCasa')->count();
+		$estudiante=DB::table('personas')->where('OcupacionPersona','estudiante')->count();
+		$desempleado=DB::table('personas')->where('OcupacionPersona','desempleado')->count();
 
-		$empleado=$conexioPersona->where('OcupacionPersona','empleado')->count();
-		$empresario=$conexioPersona->where('OcupacionPersona','empresario')->count();
-		$independiente=$conexioPersona->where('OcupacionPersona','independiente')->count();
-		$otro=$conexioPersona->where('OcupacionPersona','otro')->count();
+		$empleado=DB::table('personas')->where('OcupacionPersona','empleado')->count();
+		$empresario=DB::table('personas')->where('OcupacionPersona','empresario')->count();
+		$independiente=DB::table('personas')->where('OcupacionPersona','independiente')->count();
+		$otro=DB::table('personas')->where('OcupacionPersona','otro')->count();
 
 
 
        //Por edades
-		$rangoUnoEdad=Persona::where('EdadPersona','>=',5)->where('EdadPersona','<=',20)->count();
-		$rangoDosEdad=Persona::where('EdadPersona','>=',21)->where('EdadPersona','<=',30)->count();
-		$rangoTresEdad=Persona::where('EdadPersona','>=',31)->where('EdadPersona','<=',40)->count();
-		$rangoCuatroEdad=Persona::where('EdadPersona','>=',41)->where('EdadPersona','<=',50)->count();
-		$rangoCincoEdad=Persona::where('EdadPersona','>=',51)->count();
+		$rangoUnoEdad=DB::table('personas')->where('EdadPersona','>=',5)->where('EdadPersona','<=',20)->count();
+		$rangoDosEdad=DB::table('personas')->where('EdadPersona','>=',21)->where('EdadPersona','<=',30)->count();
+		$rangoTresEdad=DB::table('personas')->where('EdadPersona','>=',31)->where('EdadPersona','<=',40)->count();
+		$rangoCuatroEdad=DB::table('personas')->where('EdadPersona','>=',41)->where('EdadPersona','<=',50)->count();
+		$rangoCincoEdad=DB::table('personas')->where('EdadPersona','>=',51)->count();
 
        //Poblacción
 
 
-		$poblacionNinguna=Persona::where('PoblacionPersona','Ninguna')->count();
-		$poblacionVictima=Persona::where('PoblacionPersona','Víctimas del conflicto armado')->count();
+		$poblacionNinguna=DB::table('personas')->where('PoblacionPersona','Ninguna')->count();
+		$poblacionVictima=DB::table('personas')->where('PoblacionPersona','Víctimas del conflicto armado')->count();
 
-		$poblacionAfrocolombia=Persona::where('PoblacionPersona','Afrocolombiano')->count();
-		$poblacionIndigena=Persona::where('PoblacionPersona','Comunidades indígenas')->count();
-		$poblacionMayor=Persona::where('PoblacionPersona','Adulto mayor')->count();
+		$poblacionAfrocolombia=DB::table('personas')->where('PoblacionPersona','Afrocolombiano')->count();
+		$poblacionIndigena=DB::table('personas')->where('PoblacionPersona','Comunidades indígenas')->count();
+		$poblacionMayor=DB::table('personas')->where('PoblacionPersona','Adulto mayor')->count();
 
        //Barrio
 
-		$barrioUno=Persona::where('BarrioPersona','La floresta')->count();
-		$barrioDos=Persona::where('BarrioPersona','La virgen')->count();
+		$barrioUno=DB::table('personas')->where('BarrioPersona','La floresta')->count();
+		$barrioDos=DB::table('personas')->where('BarrioPersona','La virgen')->count();
 
-		$barrioTres=Persona::where('BarrioPersona','20 de enero')->count();
-		$barrioCuatro=Persona::where('BarrioPersona','Flor de mi llano')->count();
-		$barrioCinco=Persona::where('BarrioPersona','Barrio nuevo')->count();
-		$barrioSeis=Persona::where('BarrioPersona','San ignacio')->count();
-		$barrioSiete=Persona::where('BarrioPersona','Doble calzada')->count();
-		$barrioOcho=Persona::where('BarrioPersona','Colegio la inmaculada')->count();
-		$barrioNueve=Persona::where('BarrioPersona','Tachuelo')->count();
+		$barrioTres=DB::table('personas')->where('BarrioPersona','20 de enero')->count();
+		$barrioCuatro=DB::table('personas')->where('BarrioPersona','Flor de mi llano')->count();
+		$barrioCinco=DB::table('personas')->where('BarrioPersona','Barrio nuevo')->count();
+		$barrioSeis=DB::table('personas')->where('BarrioPersona','San ignacio')->count();
+		$barrioSiete=DB::table('personas')->where('BarrioPersona','Doble calzada')->count();
+		$barrioOcho=DB::table('personas')->where('BarrioPersona','Colegio la inmaculada')->count();
+		$barrioNueve=DB::table('personas')->where('BarrioPersona','Tachuelo')->count();
 
 			//Porcentaje
 
@@ -92,43 +92,43 @@ class GraficaRondonController extends Controller
 
 			//Horarios
 		$FechaActual= Carbon::now();
-		$navegacionCero=Persona::where(DB::raw('hour(created_at)'),0)->count();
+		$navegacionCero=DB::table('personas')->where(DB::raw('hour(created_at)'),0)->count();
 
 
-		$navegacionUno=Persona::where(DB::raw('hour(created_at)'),1)->count();
-		$navegacionDos=Persona::where(DB::raw('hour(created_at)'),2)->count();
+		$navegacionUno=DB::table('personas')->where(DB::raw('hour(created_at)'),1)->count();
+		$navegacionDos=DB::table('personas')->where(DB::raw('hour(created_at)'),2)->count();
 
-		$navegacionTres=Persona::where(DB::raw('hour(created_at)'),3)->count();
-		$navegacionCuatro=Persona::where(DB::raw('hour(created_at)'),4)->count();
+		$navegacionTres=DB::table('personas')->where(DB::raw('hour(created_at)'),3)->count();
+		$navegacionCuatro=DB::table('personas')->where(DB::raw('hour(created_at)'),4)->count();
 
-		$navegacionCinco=Persona::where(DB::raw('hour(created_at)'),5)->count();
-		$navegacionSeis=Persona::where(DB::raw('hour(created_at)'),6)->count();
+		$navegacionCinco=DB::table('personas')->where(DB::raw('hour(created_at)'),5)->count();
+		$navegacionSeis=DB::table('personas')->where(DB::raw('hour(created_at)'),6)->count();
 
-		$navegacionSiete=Persona::where(DB::raw('hour(created_at)'),7)->count();
-		$navegacionOcho=Persona::where(DB::raw('hour(created_at)'),8)->count();
+		$navegacionSiete=DB::table('personas')->where(DB::raw('hour(created_at)'),7)->count();
+		$navegacionOcho=DB::table('personas')->where(DB::raw('hour(created_at)'),8)->count();
 
-		$navegacionNueve=Persona::where(DB::raw('hour(created_at)'),9)->count();
-		$navegacionDiez=Persona::where(DB::raw('hour(created_at)'),10)->count();
+		$navegacionNueve=DB::table('personas')->where(DB::raw('hour(created_at)'),9)->count();
+		$navegacionDiez=DB::table('personas')->where(DB::raw('hour(created_at)'),10)->count();
 
-		$navegacionDuno=Persona::where(DB::raw('hour(created_at)'),11)->count();
-		$navegacionDdos=Persona::where(DB::raw('hour(created_at)'),12)->count();
+		$navegacionDuno=DB::table('personas')->where(DB::raw('hour(created_at)'),11)->count();
+		$navegacionDdos=DB::table('personas')->where(DB::raw('hour(created_at)'),12)->count();
 
-		$navegacionDtres=Persona::where(DB::raw('hour(created_at)'),13)->count();
-		$navegacionDcuatro=Persona::where(DB::raw('hour(created_at)'),14)->count();
+		$navegacionDtres=DB::table('personas')->where(DB::raw('hour(created_at)'),13)->count();
+		$navegacionDcuatro=DB::table('personas')->where(DB::raw('hour(created_at)'),14)->count();
 
-		$navegacionDquinto=Persona::where(DB::raw('hour(created_at)'),15)->count();
-		$navegacionDsexto=Persona::where(DB::raw('hour(created_at)'),16)->count();
+		$navegacionDquinto=DB::table('personas')->where(DB::raw('hour(created_at)'),15)->count();
+		$navegacionDsexto=DB::table('personas')->where(DB::raw('hour(created_at)'),16)->count();
 
-		$navegacionDseptimo=Persona::where(DB::raw('hour(created_at)'),17)->count();
-		$navegacionDoctavo=Persona::where(DB::raw('hour(created_at)'),18)->count();
+		$navegacionDseptimo=DB::table('personas')->where(DB::raw('hour(created_at)'),17)->count();
+		$navegacionDoctavo=DB::table('personas')->where(DB::raw('hour(created_at)'),18)->count();
 
-		$navegacionDnoveno=Persona::where(DB::raw('hour(created_at)'),19)->count();
-		$navegacionVeinte=Persona::where(DB::raw('hour(created_at)'),20)->count();
+		$navegacionDnoveno=DB::table('personas')->where(DB::raw('hour(created_at)'),19)->count();
+		$navegacionVeinte=DB::table('personas')->where(DB::raw('hour(created_at)'),20)->count();
 
-		$navegacionVuno=Persona::where(DB::raw('hour(created_at)'),21)->count();
-		$navegacionVdos=Persona::where(DB::raw('hour(created_at)'),22)->count();
+		$navegacionVuno=DB::table('personas')->where(DB::raw('hour(created_at)'),21)->count();
+		$navegacionVdos=DB::table('personas')->where(DB::raw('hour(created_at)'),22)->count();
 
-		$navegacionVtres=Persona::where(DB::raw('hour(created_at)'),23)->count();
+		$navegacionVtres=DB::table('personas')->where(DB::raw('hour(created_at)'),23)->count();
 
 
 
