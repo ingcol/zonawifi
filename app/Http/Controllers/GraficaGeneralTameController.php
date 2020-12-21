@@ -37,81 +37,81 @@ class GraficaGeneralTameController extends Controller
 		
 //Ocupación
 		
-		$amaDeCasa=$conexioPersona->where('OcupacionPersona','amaDeCasaPersona')->count();
-		$estudiante=$conexioPersona->where('OcupacionPersona','estudiantePersona')->count();
-		$desempleado=$conexioPersona->where('OcupacionPersona','desempleadoPersona')->count();
+		$amaDeCasa=DB::table('tamezonas')->where('OcupacionPersona','amaDeCasaPersona')->count();
+		$estudiante=DB::table('tamezonas')->where('OcupacionPersona','estudiantePersona')->count();
+		$desempleado=DB::table('tamezonas')->where('OcupacionPersona','desempleadoPersona')->count();
 
-		$empleado=$conexioPersona->where('OcupacionPersona','empleadoPersona')->count();
-		$empresario=$conexioPersona->where('OcupacionPersona','empresarioPersona')->count();
-		$independiente=$conexioPersona->where('OcupacionPersona','independientePersona')->count();
-		$otroPersona=$conexioPersona->where('OcupacionPersona','otroPersona')->count();
+		$empleado=DB::table('tamezonas')->where('OcupacionPersona','empleadoPersona')->count();
+		$empresario=DB::table('tamezonas')->where('OcupacionPersona','empresarioPersona')->count();
+		$independiente=DB::table('tamezonas')->where('OcupacionPersona','independientePersona')->count();
+		$otroPersona=DB::table('tamezonas')->where('OcupacionPersona','otroPersona')->count();
 
 
 
 		//Género
 
-		$femenino=$conexioPersona->where('GeneroPersona','Femenino')->count();
-		$masculino=$conexioPersona->where('GeneroPersona','Masculino')->count();
-		$otro=$conexioPersona->where('GeneroPersona','Otro')->count();
-		$lgtbi=$conexioPersona->where('GeneroPersona','LGTBI')->count();
+		$femenino=DB::table('tamezonas')->where('GeneroPersona','Femenino')->count();
+		$masculino=DB::table('tamezonas')->where('GeneroPersona','Masculino')->count();
+		$otro=DB::table('tamezonas')->where('GeneroPersona','Otro')->count();
+		$lgtbi=DB::table('tamezonas')->where('GeneroPersona','LGTBI')->count();
 
        //Por edades
-		$rangoUnoEdad=$conexioPersona->where('EdadPersona','>=',5)->where('EdadPersona','<=',20)->count();
-		$rangoDosEdad=$conexioPersona->where('EdadPersona','>=',21)->where('EdadPersona','<=',30)->count();
-		$rangoTresEdad=$conexioPersona->where('EdadPersona','>=',31)->where('EdadPersona','<=',40)->count();
-		$rangoCuatroEdad=$conexioPersona->where('EdadPersona','>=',41)->where('EdadPersona','<=',50)->count();
-		$rangoCincoEdad=$conexioPersona->where('EdadPersona','>=',51)->count();
+		$rangoUnoEdad=DB::table('tamezonas')->where('EdadPersona','>=',5)->where('EdadPersona','<=',20)->count();
+		$rangoDosEdad=DB::table('tamezonas')->where('EdadPersona','>=',21)->where('EdadPersona','<=',30)->count();
+		$rangoTresEdad=DB::table('tamezonas')->where('EdadPersona','>=',31)->where('EdadPersona','<=',40)->count();
+		$rangoCuatroEdad=DB::table('tamezonas')->where('EdadPersona','>=',41)->where('EdadPersona','<=',50)->count();
+		$rangoCincoEdad=DB::table('tamezonas')->where('EdadPersona','>=',51)->count();
 
        //Poblacción
 
-		$poblacionNinguna=$conexioPersona->where('PoblacionPersona','Ninguna')->count();
-		$poblacionVictima=$conexioPersona->where('PoblacionPersona','Víctimas del conflicto armado')->count();
+		$poblacionNinguna=DB::table('tamezonas')->where('PoblacionPersona','Ninguna')->count();
+		$poblacionVictima=DB::table('tamezonas')->where('PoblacionPersona','Víctimas del conflicto armado')->count();
 
-		$poblacionAfrocolombia=$conexioPersona->where('PoblacionPersona','Afrocolombiano')->count();
-		$poblacionIndigena=$conexioPersona->where('PoblacionPersona','Comunidades indígenas')->count();
-		$poblacionMayor=$conexioPersona->where('PoblacionPersona','Adulto mayor')->count();
+		$poblacionAfrocolombia=DB::table('tamezonas')->where('PoblacionPersona','Afrocolombiano')->count();
+		$poblacionIndigena=DB::table('tamezonas')->where('PoblacionPersona','Comunidades indígenas')->count();
+		$poblacionMayor=DB::table('tamezonas')->where('PoblacionPersona','Adulto mayor')->count();
 
        //Barrio
 
-		$barrioUno=$conexioPersona->where('BarrioPersona','Alibei')->count();
-		$barrioDos=$conexioPersona->where('BarrioPersona','Acasias II')->count();
+		$barrioUno=DB::table('tamezonas')->where('BarrioPersona','Alibei')->count();
+		$barrioDos=DB::table('tamezonas')->where('BarrioPersona','Acasias II')->count();
 
-		$barrioTres=$conexioPersona->where('BarrioPersona','Bajo cusay II')->count();
-		$barrioCuatro=$conexioPersona->where('BarrioPersona','Banco purare')->count();
-		$barrioCinco=$conexioPersona->where('BarrioPersona','Betoyes')->count();
-		$barrioSeis=$conexioPersona->where('BarrioPersona','Brisas de satena')->count();
-		$barrioSiete=$conexioPersona->where('BarrioPersona','Brisas de tamacay')->count();
-		$barrioOcho=$conexioPersona->where('BarrioPersona','Brisas del cravo')->count();
+		$barrioTres=DB::table('tamezonas')->where('BarrioPersona','Bajo cusay II')->count();
+		$barrioCuatro=DB::table('tamezonas')->where('BarrioPersona','Banco purare')->count();
+		$barrioCinco=DB::table('tamezonas')->where('BarrioPersona','Betoyes')->count();
+		$barrioSeis=DB::table('tamezonas')->where('BarrioPersona','Brisas de satena')->count();
+		$barrioSiete=DB::table('tamezonas')->where('BarrioPersona','Brisas de tamacay')->count();
+		$barrioOcho=DB::table('tamezonas')->where('BarrioPersona','Brisas del cravo')->count();
 			//Barrio
 
-		$barrioNueve=$conexioPersona->where('BarrioPersona','Caño limón')->count();
-		$barrioDiez=$conexioPersona->where('BarrioPersona','Corocito')->count();
+		$barrioNueve=DB::table('tamezonas')->where('BarrioPersona','Caño limón')->count();
+		$barrioDiez=DB::table('tamezonas')->where('BarrioPersona','Corocito')->count();
 
-		$barrioDuno=$conexioPersona->where('BarrioPersona','Caño corozo')->count();
-		$barrioDdos=$conexioPersona->where('BarrioPersona','El pesebre')->count();
-		$barrioDtres=$conexioPersona->where('BarrioPersona','El susto')->count();
-		$barrioDcuatro=$conexioPersona->where('BarrioPersona','Filipinas')->count();
-		$barrioDcinco=$conexioPersona->where('BarrioPersona','La arenosa')->count();
-		$barrioDseis=$conexioPersona->where('BarrioPersona','La holanda')->count();
+		$barrioDuno=DB::table('tamezonas')->where('BarrioPersona','Caño corozo')->count();
+		$barrioDdos=DB::table('tamezonas')->where('BarrioPersona','El pesebre')->count();
+		$barrioDtres=DB::table('tamezonas')->where('BarrioPersona','El susto')->count();
+		$barrioDcuatro=DB::table('tamezonas')->where('BarrioPersona','Filipinas')->count();
+		$barrioDcinco=DB::table('tamezonas')->where('BarrioPersona','La arenosa')->count();
+		$barrioDseis=DB::table('tamezonas')->where('BarrioPersona','La holanda')->count();
 			//Barrio
 
-		$barrioDsiete=$conexioPersona->where('BarrioPersona','La unión')->count();
-		$barrioDocho=$conexioPersona->where('BarrioPersona','Lejanías')->count();
+		$barrioDsiete=DB::table('tamezonas')->where('BarrioPersona','La unión')->count();
+		$barrioDocho=DB::table('tamezonas')->where('BarrioPersona','Lejanías')->count();
 
-		$barrioDnueve=$conexioPersona->where('BarrioPersona','Marquelandia')->count();
-		$barrioVeinte=$conexioPersona->where('BarrioPersona','Napoles')->count();
-		$barrioVuno=$conexioPersona->where('BarrioPersona','Nuevo amanecer')->count();
-		$barrioVdos=$conexioPersona->where('BarrioPersona','Rincón de la esperanza')->count();
-		$barrioVtres=$conexioPersona->where('BarrioPersona','Rincón hondo')->count();
-		$barrioVcuatro=$conexioPersona->where('BarrioPersona','San antonio')->count();
+		$barrioDnueve=DB::table('tamezonas')->where('BarrioPersona','Marquelandia')->count();
+		$barrioVeinte=DB::table('tamezonas')->where('BarrioPersona','Napoles')->count();
+		$barrioVuno=DB::table('tamezonas')->where('BarrioPersona','Nuevo amanecer')->count();
+		$barrioVdos=DB::table('tamezonas')->where('BarrioPersona','Rincón de la esperanza')->count();
+		$barrioVtres=DB::table('tamezonas')->where('BarrioPersona','Rincón hondo')->count();
+		$barrioVcuatro=DB::table('tamezonas')->where('BarrioPersona','San antonio')->count();
 
 			//Barrio
 
-		$barrioVcinco=$conexioPersona->where('BarrioPersona','San salvador')->count();
-		$barrioVseis=$conexioPersona->where('BarrioPersona','Santo domingo caserio')->count();
+		$barrioVcinco=DB::table('tamezonas')->where('BarrioPersona','San salvador')->count();
+		$barrioVseis=DB::table('tamezonas')->where('BarrioPersona','Santo domingo caserio')->count();
 
-		$barrioVsiete=$conexioPersona->where('BarrioPersona','Saparay')->count();
-		$barrioVocho=$conexioPersona->where('BarrioPersona','Vereda santo domingo')->count();
+		$barrioVsiete=DB::table('tamezonas')->where('BarrioPersona','Saparay')->count();
+		$barrioVocho=DB::table('tamezonas')->where('BarrioPersona','Vereda santo domingo')->count();
 
 		//Porcentaje
 

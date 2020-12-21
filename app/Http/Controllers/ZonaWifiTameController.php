@@ -48,7 +48,9 @@ class ZonaWifiTameController extends Controller
     $datoPersona->EdadPersona=$request->edadPersona;
     $datoPersona->GeneroPersona=$request->generoPersona;
     $datoPersona->BarrioPersona=$request->barrioPersona;
-    
+    $datoPersona->OcupacionPersona=$request->ocupacionPersona;
+
+    /*
 
     if ($request->ocupacionPersona=="amaDeCasa") {
 
@@ -90,6 +92,8 @@ class ZonaWifiTameController extends Controller
       $datoPersona->OcupacionPersona="otroPersona"
 
     }
+
+   */ 
 
 
 
