@@ -96,8 +96,8 @@ class FiltroGeneralTameController extends Controller
 			$barrioDseis=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La holanda')->count();
 			//Barrio
 
-			$barrioDsiete=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La unión')->count();
-			$barrioDocho=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Lejanías')->count();
+			$barrioDsiete=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','La unión')->count();
+			$barrioDocho=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Lejanías')->count();
 
 			$barrioDnueve=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Marquelandia')->count();
 			$barrioVeinte=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Napoles')->count();
@@ -121,7 +121,7 @@ class FiltroGeneralTameController extends Controller
 
 			//Horarios
 			$FechaActual= Carbon::now();
-			$navegacionCero=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where(DB::raw('hour(created_at)'),0)->count();
+			$navegacionCero=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where(DB::raw('hour(created_at)'),0)->count();
 
 
 			$navegacionUno=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where(DB::raw('hour(created_at)'),1)->count();
@@ -277,8 +277,8 @@ class FiltroGeneralTameController extends Controller
 			
 		}
 		elseif ($request->filtrarDatos=="4") {
-			$barrioUno=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Alibei')->count();
-			$barrioDos=ZonaWifiTame::whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Acasias II')->count();
+			$barrioUno=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Alibei')->count();
+			$barrioDos=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Acasias II')->count();
 
 			$barrioTres=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Bajo cusay II')->count();
 			$barrioCuatro=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('BarrioPersona','Banco purare')->count();

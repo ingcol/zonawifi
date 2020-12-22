@@ -37,14 +37,14 @@ class GraficaGeneralTameController extends Controller
 		
 //Ocupación
 		
-		$amaDeCasa=DB::table('tamezonas')->where('OcupacionPersona','amaDeCasaPersona')->count();
-		$estudiante=DB::table('tamezonas')->where('OcupacionPersona','estudiantePersona')->count();
-		$desempleado=DB::table('tamezonas')->where('OcupacionPersona','desempleadoPersona')->count();
+		$amaDeCasa=DB::table('tamezonas')->where('OcupacionPersona','amaDeCasa')->count();
+		$estudiante=DB::table('tamezonas')->where('OcupacionPersona','estudiante')->count();
+		$desempleado=DB::table('tamezonas')->where('OcupacionPersona','desempleado')->count();
 
-		$empleado=DB::table('tamezonas')->where('OcupacionPersona','empleadoPersona')->count();
-		$empresario=DB::table('tamezonas')->where('OcupacionPersona','empresarioPersona')->count();
+		$empleado=DB::table('tamezonas')->where('OcupacionPersona','empleado')->count();
+		$empresario=DB::table('tamezonas')->where('OcupacionPersona','empresario')->count();
 		$independiente=DB::table('tamezonas')->where('OcupacionPersona','independientePersona')->count();
-		$otroPersona=DB::table('tamezonas')->where('OcupacionPersona','otroPersona')->count();
+		$otroPersona=DB::table('tamezonas')->where('OcupacionPersona','otro')->count();
 
 
 

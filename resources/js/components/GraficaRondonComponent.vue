@@ -229,7 +229,7 @@
             this.totalDispositivo=response.data.totalDispositivo;
             this.dataOcupacion= {
               chart: {
-                caption: "Conexión por ocupación",
+                caption: "Conexión por ocupación (estadística generada desde 27/11/2020)",
 
                 xaxisname: "",
                 yaxisname: "Cantidad de personas",
