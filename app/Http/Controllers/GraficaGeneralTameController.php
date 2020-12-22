@@ -158,6 +158,17 @@ class GraficaGeneralTameController extends Controller
 
 		$navegacionVtres=DB::table('tamezonas')->where(DB::raw('hour(created_at)'),23)->count();
 
+		//Nacionalidad
+
+		$colombiano=DB::table('tamezonas')->where('NacionalidadPersona','Colombiano')->count();
+		
+
+		$venezolano=DB::table('tamezonas')->where('NacionalidadPersona','Venezolano')->count();
+		
+		$ecuatoriano=DB::table('tamezonas')->where('NacionalidadPersona','Ecuatoriano')->count();
+
+
+
 
 
 
@@ -238,7 +249,10 @@ class GraficaGeneralTameController extends Controller
 		    'otroPersona'=>$otroPersona,
 		    'totalConexion'=>$totalConexion,
 		    "totalDispositivo"=>$totalDispositivo,
-		    "totalBarrioConectado"=>$totalBarrioConectado
+		    "totalBarrioConectado"=>$totalBarrioConectado,
+		    "venezolano"=>$venezolano,
+		    "colombiano"=>$colombiano,
+		    "ecuatoriano"=>$ecuatoriano
 		]);
 
 	}

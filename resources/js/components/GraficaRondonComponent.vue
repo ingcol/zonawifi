@@ -134,6 +134,20 @@
 
 </div>
 </div>
+<div class="row mt-4 mb-4  p-3 bg-white">
+  <div class="col-md-12">
+   <fusioncharts
+   :type="type"
+   :width="width"
+   :height="height"
+   :dataformat="dataFormat"
+   :dataSource="dataNacionalidad"
+
+   >
+ </fusioncharts>
+
+</div>
+</div>
 <!--
 <div class="row mt-4 mb-4  p-3 bg-white">
   <div class="col-md-12 p-4">
@@ -193,6 +207,7 @@
           dataBarrio:{},
           dataHorario:{},
           dataOcupacion:{},
+          dataNacionalidad:{},
 
 
 
@@ -282,6 +297,51 @@
                 label: "Otro",
                 value: response.data.otro
               },
+
+
+              ],
+
+            };
+            this.dataNacionalidad= {
+              chart: {
+                caption: "Conexión nacionalidad (estadística generada desde 27/11/2020)",
+
+                xaxisname: "",
+                yaxisname: "Cantidad de personas",
+                "thousandSeparator": ".",
+                "numberScaleValue": "1000,1000,1000",
+
+
+                theme: "fusion",
+                exportEnabled:1,
+                "showValues": "1",
+                "rotateValues": "0",
+                "valueFontColor": "#000000",
+                "valueBgColor": "#FFFFFF",
+                "valueBgAlpha": "50",
+                "borderColor": "#666666",
+                "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+               paletteColors: '#681D0D,#8944CE,#f2c500',
+
+
+              },
+              data: [
+              {
+                label: "Colombiano",
+                value: response.data.colombiano
+              },
+              {
+                label: "Ecuatoriano",
+                value: response.data.ecuatoriano
+              },
+              {
+                label: "Venezolano",
+                value: response.data.venezolano
+              },
+              
 
 
               ],

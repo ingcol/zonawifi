@@ -130,6 +130,15 @@ class GraficaRondonController extends Controller
 
 		$navegacionVtres=DB::table('personas')->where(DB::raw('hour(created_at)'),23)->count();
 
+		//Nacionalidad
+
+		$colombiano=DB::table('personas')->where('NacionalidadPersona','Colombiano')->count();
+		
+
+		$venezolano=DB::table('personas')->where('NacionalidadPersona','Venezolano')->count();
+		
+		$ecuatoriano=DB::table('personas')->where('NacionalidadPersona','Ecuatoriano')->count();
+
 
 
 
@@ -199,7 +208,10 @@ class GraficaRondonController extends Controller
 		    'otro'=>$otro,
 		    'totalConexion'=>$totalConexion,
 		    "totalDispositivo"=>$totalDispositivo,
-		    "totalBarrioConectado"=>$totalBarrioConectado
+		    "totalBarrioConectado"=>$totalBarrioConectado,
+		    "venezolano"=>$venezolano,
+		    "colombiano"=>$colombiano,
+		    "ecuatoriano"=>$ecuatoriano
 		]);
 
 	}
