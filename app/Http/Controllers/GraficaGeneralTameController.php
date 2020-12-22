@@ -43,7 +43,7 @@ class GraficaGeneralTameController extends Controller
 
 		$empleado=DB::table('tamezonas')->where('OcupacionPersona','empleado')->count();
 		$empresario=DB::table('tamezonas')->where('OcupacionPersona','empresario')->count();
-		$independiente=DB::table('tamezonas')->where('OcupacionPersona','independientePersona')->count();
+		$independiente=DB::table('tamezonas')->where('OcupacionPersona','independiente')->count();
 		$otroPersona=DB::table('tamezonas')->where('OcupacionPersona','otro')->count();
 
 
