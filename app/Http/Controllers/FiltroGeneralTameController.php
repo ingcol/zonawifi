@@ -50,10 +50,10 @@ class FiltroGeneralTameController extends Controller
 			$conexioPersona=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->get();
 
 
-			$femenino=DB::table('tamezonas')->where('GeneroPersona','Femenino')->count();
-			$masculino=DB::table('tamezonas')->where('GeneroPersona','Masculino')->count();
-			$otro=DB::table('tamezonas')->where('GeneroPersona','Otro')->count();
-			$lgtbi=DB::table('tamezonas')->where('GeneroPersona','LGTBI')->count();
+			$femenino=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','Femenino')->count();
+			$masculino=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','Masculino')->count();
+			$otro=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','Otro')->count();
+			$lgtbi=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','LGTBI')->count();
 
        //Por edades
 			$rangoUnoEdad=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('EdadPersona','>=',5)->where('EdadPersona','<=',20)->count();
@@ -426,10 +426,10 @@ class FiltroGeneralTameController extends Controller
 			$conexioPersona=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->get();
 
 
-			$femenino=DB::table('tamezonas')->where('GeneroPersona','Femenino')->count();
-			$masculino=DB::table('tamezonas')->where('GeneroPersona','Masculino')->count();
-			$otro=DB::table('tamezonas')->where('GeneroPersona','Otro')->count();
-			$lgtbi=DB::table('tamezonas')->where('GeneroPersona','LGTBI')->count();
+			$femenino=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','Femenino')->count();
+			$masculino=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','Masculino')->count();
+			$otro=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','Otro')->count();
+			$lgtbi=DB::table('tamezonas')->whereDate('created_at','<=',  $request->fechaFin)->whereDate('created_at','>=',  $request->fechaInicio)->where('GeneroPersona','LGTBI')->count();
 			return response()->json([
 				'filtro'=>$request->filtrarDatos,
 				'InicioFiltro'=>$request->fechaInicio,
