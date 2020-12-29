@@ -103,7 +103,7 @@ class ZonaWifiTameController extends Controller
     $datoPersona->NacionalidadPersona=$request->nacionalidadPersona;
 
 
-    //$datoPersona->save();
+    $datoPersona->save();
     return $datoPersona;
 
 
