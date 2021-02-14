@@ -10,6 +10,8 @@ Route::group(["middleware" => "apikey.validate"], function () {
   Route::post('portalCautivoRegistrar','PortalCautivoController@portalCautivoRegistrar');
   Route::post('portalZonaTameRegistrar','ZonaWifiTameController@portalZonaTameRegistrar');
 
+  Route::post('zonaWifiLiceoRegistrar','ZonaWifiLiceoRegistrarController@registrar');
+
 
 
 });

@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
 protected $except =[
          'http://167.172.28.167/portalCautivoRegistrar?api_key=key_cur_prod_fnPqT5xQEi5Vcb9wKwbCf65c3BjVGyBB',
          'http://167.172.28.167/portalZonaTameRegistrar?api_key=key_cur_prod_fnPqT5xQEi5Vcb9wKwbCf65c3BjVGyBB',
+         'http://167.172.28.167/zonaWifiLiceoRegistrar?api_key=key_cur_prod_fnPqT5xQEi5Vcb9wKwbCf65c3BjVGyBB',
          
     ];
 }
