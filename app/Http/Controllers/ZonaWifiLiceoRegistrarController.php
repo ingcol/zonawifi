@@ -27,6 +27,8 @@ class ZonaWifiLiceoRegistrarController extends Controller
 				$conexion->persona_liceo_id=$existePersona->id;
 				$conexion->zona_liceo_id=$request->zone;
 				$conexion->save();
+
+				return response()->json(['success' => ['message' => ['Registro creado con exito']]],200);
 			}
 
 		}
