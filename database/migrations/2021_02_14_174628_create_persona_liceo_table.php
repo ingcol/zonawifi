@@ -17,14 +17,13 @@ class CreatePersonaLiceoTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('nombre');
-            $table->string('apellido');
+            $table->string('apellido')->nullable();
             $table->bigInteger('documento')->unsigned()->unique();
             $table->bigInteger('grado_id')->unsigned()->index()->nullable();
             $table->foreign('grado_id')->references('id')->on('grado_liceo');
             $table->string('genero')->nullable();
             $table->bigInteger('edad')->nullable();
             $table->string('estado')->nullable();
-            $table->string('mac')->nullable();
             $table->timestamps();
         });
     }

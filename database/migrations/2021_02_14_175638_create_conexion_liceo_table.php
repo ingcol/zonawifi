@@ -19,6 +19,7 @@ class CreateConexionLiceoTable extends Migration
             $table->foreign('persona_liceo_id')->references('id')->on('persona_liceo');
             $table->bigInteger('zona_liceo_id')->unsigned()->nullable()->index();
             $table->foreign('zona_liceo_id')->references('id')->on('zona_liceo');
+            $table->string('mac')->nullable();
             $table->timestamps();
         });
     }

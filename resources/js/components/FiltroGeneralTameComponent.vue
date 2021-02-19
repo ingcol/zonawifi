@@ -1080,7 +1080,7 @@ else if (response.data.filtro==6) {
           }
           this.isLoading = false;
 
-        }) .catch(error => {
+        }).catch(error => {
          this.isLoading = false;
          _.forEach(error.response.data.errors, function(value, key) {
           $.toast({

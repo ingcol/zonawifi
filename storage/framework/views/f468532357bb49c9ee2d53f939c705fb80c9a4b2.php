@@ -191,7 +191,7 @@
                                 -->
 
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)" class="text-white" ><i class="ik bar-chart ik-bar-chart"></i><span>Wifi Rondón</span></a>
+                                    <a href="javascript:void(0)" class="text-white" ><i class="ik wifi ik-wifi"></i><span>Rondón</span></a>
                                     <div class="submenu-content">
                                         
                                         
@@ -204,12 +204,24 @@
                                 </div>
                                 <div class="nav-item has-sub">
                                     <a href="javascript:void(0)" class="text-white" ><i class="ik wifi ik-wifi
-                                        "></i><span>Wifi Tame</span></a>
+                                        "></i><span>Tame</span></a>
                                         <div class="submenu-content">
                                             
                                             <a href="listadoConexionTame" class="menu-item">Listado de conexiones</a>
                                             <a href="graficaGeneralTame" class="menu-item">Estadística general</a>
                                              <a href="<?php echo e(route('filtroTameGeneral.index')); ?>" class="menu-item">Filtro general rango de fechas</a>
+                                            
+
+                                        </div>
+                                    </div>
+
+                                    <div class="nav-item has-sub">
+                                    <a href="javascript:void(0)" class="text-white" ><i class="ik wifi ik-wifi
+                                        "></i><span>Liceo</span></a>
+                                        <div class="submenu-content">
+                                            
+                                           
+                                             <a href="<?php echo e(route('filtroGeneralLiceo.index')); ?>" class="menu-item">Filtro general rango de fechas</a>
                                             
 
                                         </div>

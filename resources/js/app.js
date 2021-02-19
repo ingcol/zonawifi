@@ -61,6 +61,7 @@ Vue.component('grafica-general-tame', require('./components/GraficaGeneralTameCo
 Vue.component('listado-conexion-tame', require('./components/ListadoConexionTameComponent.vue').default);
 Vue.component('filtro-general-rondon', require('./components/FiltroGeneralRondonComponent.vue').default);
 Vue.component('filtro-general-tame', require('./components/FiltroGeneralTameComponent.vue').default);
+Vue.component('filtro-general-liceo', require('./components/FiltroGeneralLiceoComponent.vue').default);
 
 
 /**
