@@ -33,7 +33,8 @@ Route::get('filtroTameGeneral', 'FiltroGeneralTameController@filtroTameGeneral')
 
  Route::get('filtroGeneralLiceoDatos', 'FiltroGeneralLiceoController@filtroGeneralLiceoDatos');
 
-
+Route::get('listadoUsuarioLiceo', 'ListadoUsuarioLiceoController@listadoUsuarioLiceo');
+Route::get('conexioPorUsuarioLiceo', 'ListadoUsuarioLiceoController@conexioPorUsuarioLiceo');
 
 
 
@@ -110,6 +111,7 @@ Route::get('exportarExcel','informeExcelController@excel');
      Route::get('filtroTameGeneral', 'FiltroGeneralTameController@index')->name('filtroTameGeneral.index');
 
      Route::get('filtroGeneralLiceo', 'FiltroGeneralLiceoController@index')->name('filtroGeneralLiceo.index');
+      Route::get('listadoUsuarioLiceo', 'ListadoUsuarioLiceoController@index')->name('listadoUsuarioLiceo.index');
 
 
 

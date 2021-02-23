@@ -91,20 +91,37 @@
 </div>
 <br>
 <div  class="contenedor-home"  v-if="filtroDiv">
-
-  <div class="row mt-4 mb-4 p-3 bg-white" v-if="verZona">
+  <div class="row mt-4 mb-4  p-3 bg-white"  v-if="verGrado" >
     <div class="col-md-12">
      <fusioncharts
-     :type="tipoZona"
+     :type="tipoEdad"
      :width="width"
      :height="height"
      :dataformat="dataFormat"
-     :dataSource="dataZona"
+     :dataSource="dataGrado"
 
      >
    </fusioncharts>
 
  </div>
+
+</div>
+
+
+
+<div class="row mt-4 mb-4 p-3 bg-white" v-if="verZona">
+  <div class="col-md-12">
+   <fusioncharts
+   :type="tipoZona"
+   :width="width"
+   :height="height"
+   :dataformat="dataFormat"
+   :dataSource="dataZona"
+
+   >
+ </fusioncharts>
+
+</div>
 </div>
 
 
@@ -122,6 +139,20 @@
 
 </div>
 
+</div>
+<div class="row mt-4 mb-4  p-3 bg-white"  v-if="verGenero">
+  <div class="col-md-12">
+   <fusioncharts
+   :type="type"
+   :width="width"
+   :height="height"
+   :dataformat="dataFormat"
+   :dataSource="dataGenero"
+
+   >
+ </fusioncharts>
+
+</div>
 </div>
 <loading :active.sync="isLoading"
 :can-cancel="false"></loading>
@@ -172,6 +203,7 @@
           dataPoblacion:{},
           dataZona:{},
           dataHorario:{},
+          dataGrado:{},
 
           height:"680",
 
@@ -267,8 +299,101 @@
         this.filtroDiv=true
 
 
+        //Grado
+       if (response.data.filtro==2) {
+          this.verGenero=false;
+          this.verGrado=true;
+          this.verHorario=false;
+          this.verZona=false;
+
+          this.dataGrado={
+            chart: {
+              caption: "Conexión por grados " + '( Total:' +' '+ response.data.totalGrado +' '+ ')',
+
+              xaxisname: "",
+              yaxisname: "Cantidad de personas",
+              SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+              subcaptionFontSize: "17",
+              "subcaptionFontColor": "#333333",
+              "subcaptionFontBold": "0",
+
+              theme: "fusion",
+              exportEnabled:1,
+              "showValues": "1",
+              "rotateValues": "0",
+              "valueFontColor": "#000000",
+              "valueBgColor": "#FFFFFF",
+              "valueBgAlpha": "50",
+              "borderColor": "#666666",
+              "borderThickness": "4",
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
+              paletteColors: '#FF5733,#f2c500,,#e6e6e6,#8944CE,#1C95BF,#5F1CBF,#ff0000,#FF4433,#f1c5C0,#681D0D,#4966CE,#339aac,#4f399c,#ff0000'
+              ,
+
+
+            },
+            data: [
+            
+            {
+              label: "Primero",
+              value: response.data.gradoPrimero
+            },
+            {
+              label: "Segundo",
+              value: response.data.gradoSegundo
+            },
+            {
+              label: "Tercero",
+              value: response.data.gradoTercero
+            },
+            {
+              label: "Cuarto",
+              value: response.data.gradoCuarto
+            },
+            {
+              label: "Quinto",
+              value: response.data.gradoQuinto
+            },
+            {
+              label: "Sexto",
+              value: response.data.gradoSexto
+            },
+            {
+              label: "Séptimo",
+              value: response.data.gradoSeptimo
+            },
+            {
+              label: "Octavo",
+              value: response.data.gradoOctavo
+            },
+            {
+              label: "Noveno",
+              value: response.data.gradoNoveno
+            },
+            {
+              label: "Décimo",
+              value: response.data.gradoDecimo
+            },
+            {
+              label: "Once",
+              value: response.data.gradoOnce
+            },
+            
+
+
+
+            ],
+
+          };
+
+
+        }
+
+
+
         //Zona
-        if (response.data.filtro==4) {
+        else if (response.data.filtro==4) {
 
           this.verGenero=false;
           this.verGrado=false;
@@ -329,7 +454,7 @@
           };
         }
 
-        if (response.data.filtro==5) {
+        else if (response.data.filtro==5) {
           this.verGenero=false;
           this.verGrado=false;
           this.verHorario=true;
@@ -464,36 +589,401 @@
 
 
         }
-      }).catch(error => {
-       this.isLoading = false;
-       _.forEach(error.response.data.errors, function(value, key) {
-        $.toast({
-          heading: '¡Error!',
-          text: value,
-          showHideTransition: 'slide',
-          icon: 'error',
-          loaderBg: '#f2a654',
-          position: 'top-right',
+        //Género
+        else if (response.data.filtro==6) {
+
+          this.verGenero=true;
+          this.verGrado=false;
+          this.verHorario=false;
+          this.verZona=false;
+  //Género
+  this.dataGenero= {
+    chart: {
+      caption: "Conexión por género " + '( Total:' +' '+ response.data.totalGenero +' '+ ')',
+
+      SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+      subcaptionFontSize: "17",
+      "subcaptionFontColor": "#333333",
+      "subcaptionFontBold": "0",
+      xaxisname: "",
+      yaxisname: "Cantidad de personas",
+      "thousandSeparator": ".",
+      "numberScaleValue": "1000,1000,1000",
+
+
+      theme: "fusion",
+      exportEnabled:1,
+      "showValues": "1",
+      "rotateValues": "0",
+      "valueFontColor": "#000000",
+      "valueBgColor": "#FFFFFF",
+      "valueBgAlpha": "50",
+      "borderColor": "#666666",
+      "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+
+
+              },
+              data: [
+              {
+                label: "Femenino",
+                value: response.data.femenino
+              },
+              {
+                label: "Masculino",
+                value: response.data.masculino
+              }
+              
+
+
+              ],
+
+            };
+
+
+          }
+          else {
+          this.verGenero=true;
+          this.verGrado=true;
+          this.verHorario=true;
+          this.verZona=true;
+          this.dataGenero= {
+    chart: {
+      caption: "Conexión por género " + '( Total:' +' '+ response.data.totalGenero +' '+ ')',
+
+      SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+      subcaptionFontSize: "17",
+      "subcaptionFontColor": "#333333",
+      "subcaptionFontBold": "0",
+      xaxisname: "",
+      yaxisname: "Cantidad de personas",
+      "thousandSeparator": ".",
+      "numberScaleValue": "1000,1000,1000",
+
+
+      theme: "fusion",
+      exportEnabled:1,
+      "showValues": "1",
+      "rotateValues": "0",
+      "valueFontColor": "#000000",
+      "valueBgColor": "#FFFFFF",
+      "valueBgAlpha": "50",
+      "borderColor": "#666666",
+      "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+
+
+              },
+              data: [
+              {
+                label: "Femenino",
+                value: response.data.femenino
+              },
+              {
+                label: "Masculino",
+                value: response.data.masculino
+              }
+              
+
+
+              ],
+
+            };
+            this.dataHorario={
+            chart: {
+              caption: "Horario de conexión " + '( Total:' +' '+ response.data.totalNavegacionHora +' '+ ')',
+
+              xaxisname: "",
+              yaxisname: "Cantidad de personas",
+              SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+              subcaptionFontSize: "17",
+              "subcaptionFontColor": "#333333",
+              "subcaptionFontBold": "0",
+
+              theme: "fusion",
+              exportEnabled:1,
+              "showValues": "1",
+              "rotateValues": "0",
+              "valueFontColor": "#000000",
+              "valueBgColor": "#FFFFFF",
+              "valueBgAlpha": "50",
+              "borderColor": "#666666",
+              "borderThickness": "4",
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
+
+
+            },
+            data: [
+            {
+              label: "12  AM",
+              value: response.data.navegacionCero
+            },
+            {
+              label: "1",
+              value: response.data.navegacionUno
+            },
+            {
+              label: "2",
+              value: response.data.navegacionDos
+            },
+            {
+              label: "3",
+              value: response.data.navegacionTres
+            },
+            {
+              label: "4",
+              value: response.data.navegacionCuatro
+            },
+            {
+              label: "5",
+              value: response.data.navegacionCinco
+            },
+            {
+              label: "6",
+              value: response.data.navegacionSeis
+            },
+            {
+              label: "7",
+              value: response.data.navegacionSiete
+            },
+            {
+              label: "8",
+              value: response.data.navegacionOcho
+            },
+            {
+              label: "9",
+              value: response.data.navegacionNueve
+            },
+            {
+              label: "10",
+              value: response.data.navegacionDiez
+            },
+            {
+              label: "11",
+              value: response.data.navegacionDuno
+            },
+            {
+              label: "12  PM",
+              value: response.data.navegacionDdos
+            },
+            {
+              label: "1",
+              value: response.data.navegacionDtres
+            },
+            {
+              label: "2",
+              value: response.data.navegacionDcuatro
+            },{
+              label: "3",
+              value: response.data.navegacionDquinto
+            },
+            {
+              label: "4",
+              value: response.data.navegacionDsexto
+            },
+            {
+              label: "5",
+              value: response.data.navegacionDseptimo
+            },
+            {
+              label: "6",
+              value: response.data.navegacionDoctavo
+            },
+            {
+              label: "7",
+              value: response.data.navegacionDnoveno
+            },{
+              label: "8",
+              value: response.data.navegacionVeinte
+            },
+            {
+              label: "9",
+              value: response.data.navegacionVuno
+            },
+            {
+              label: "10",
+              value: response.data.navegacionVdos
+            },
+            {
+              label: "11",
+              value: response.data.navegacionVtres
+            },
+
+
+
+            ],
+
+          };
+          this.dataZona= {
+            chart: {
+              caption: "Conexión por sede " + '( Total:' +' '+ response.data.totalZona +' '+ ')',
+              SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+              subcaptionFontSize: "17",
+              "subcaptionFontColor": "#333333",
+              "subcaptionFontBold": "0",
+
+              xaxisname: "",
+              yaxisname: "Cantidad de personas",
+
+              theme: "fusion",
+              exportEnabled:1,
+              "showValues": "1",
+              "rotateValues": "0",
+              "valueFontColor": "#000000",
+              "valueBgColor": "#FFFFFF",
+              "valueBgAlpha": "50",
+              "borderColor": "#666666",
+              "borderThickness": "4",
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
+              paletteColors: '#0075c2,#1aaf5d,#f2c500,#FF5733,#681D0D,#8944CE,#1C95BF,#5F1CBF,#ff0000',
+
+            },
+            data: [
+            {
+              label: "Sede Principal",
+              value: response.data.zonaUno
+            },
+            {
+              label: "Sede Primaria",
+              value: response.data.zonaDos
+            },
+            {
+              label: "Sede Simón Bolivar",
+              value: response.data.zonaTres
+            },
+            {
+              label: "Sede San Pablo",
+              value: response.data.zonaCuatro
+            },
+            {
+              label: "Sede Bello Oriente",
+              value: response.data.zonaCinco
+            },
+            {
+              label: "Sede Granja",
+              value: response.data.zonaSeis
+            }
+            ],
+
+          };
+           this.dataGrado={
+            chart: {
+              caption: "Conexión por grados " + '( Total:' +' '+ response.data.totalGrado +' '+ ')',
+
+              xaxisname: "",
+              yaxisname: "Cantidad de personas",
+              SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+              subcaptionFontSize: "17",
+              "subcaptionFontColor": "#333333",
+              "subcaptionFontBold": "0",
+
+              theme: "fusion",
+              exportEnabled:1,
+              "showValues": "1",
+              "rotateValues": "0",
+              "valueFontColor": "#000000",
+              "valueBgColor": "#FFFFFF",
+              "valueBgAlpha": "50",
+              "borderColor": "#666666",
+              "borderThickness": "4",
+              "thousandSeparator": ".",
+              "numberScaleValue": "1000,1000,1000",
+              paletteColors: '#FF5733,#f2c500,,#e6e6e6,#8944CE,#1C95BF,#5F1CBF,#ff0000,#FF4433,#f1c5C0,#681D0D,#4966CE,#339aac,#4f399c,#ff0000'
+              ,
+
+
+            },
+            data: [
+            
+            {
+              label: "Primero",
+              value: response.data.gradoPrimero
+            },
+            {
+              label: "Segundo",
+              value: response.data.gradoSegundo
+            },
+            {
+              label: "Tercero",
+              value: response.data.gradoTercero
+            },
+            {
+              label: "Cuarto",
+              value: response.data.gradoCuarto
+            },
+            {
+              label: "Quinto",
+              value: response.data.gradoQuinto
+            },
+            {
+              label: "Sexto",
+              value: response.data.gradoSexto
+            },
+            {
+              label: "Séptimo",
+              value: response.data.gradoSeptimo
+            },
+            {
+              label: "Octavo",
+              value: response.data.gradoOctavo
+            },
+            {
+              label: "Noveno",
+              value: response.data.gradoNoveno
+            },
+            {
+              label: "Décimo",
+              value: response.data.gradoDecimo
+            },
+            {
+              label: "Once",
+              value: response.data.gradoOnce
+            },
+            
+
+
+
+            ],
+
+          };
+        }
+
+        }).catch(error => {
+         this.isLoading = false;
+         _.forEach(error.response.data.errors, function(value, key) {
+          $.toast({
+            heading: '¡Error!',
+            text: value,
+            showHideTransition: 'slide',
+            icon: 'error',
+            loaderBg: '#f2a654',
+            position: 'top-right',
+
+          });
 
         });
 
-      });
+
+       });
 
 
-     });
 
 
 
+      }
+
+    },
+    computed: {
 
 
     }
-
-  },
-  computed: {
-
-
-  }
-};
+  };
 </script>
 
 <style>

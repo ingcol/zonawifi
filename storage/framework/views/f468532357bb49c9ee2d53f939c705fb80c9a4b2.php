@@ -222,6 +222,9 @@
                                             
                                            
                                              <a href="<?php echo e(route('filtroGeneralLiceo.index')); ?>" class="menu-item">Filtro general rango de fechas</a>
+
+
+                                             <a href="<?php echo e(route('listadoUsuarioLiceo.index')); ?>" class="menu-item">Listado de usuarios</a>
                                             
 
                                         </div>

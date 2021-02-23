@@ -221,6 +221,9 @@
                                             
                                            
                                              <a href="{{route('filtroGeneralLiceo.index')}}" class="menu-item">Filtro general rango de fechas</a>
+
+
+                                             <a href="{{route('listadoUsuarioLiceo.index')}}" class="menu-item">Listado de usuarios</a>
                                             
 
                                         </div>
