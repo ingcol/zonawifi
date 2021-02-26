@@ -304,7 +304,7 @@
             };
             this.dataNacionalidad= {
               chart: {
-                caption: "Conexión nacionalidad (estadística generada desde 27/11/2020)",
+                caption: "Conexión nacionalidad",
 
                 xaxisname: "",
                 yaxisname: "Cantidad de personas",
