@@ -22,6 +22,12 @@ class FiltroGeneralRondonController extends Controller
 
 
 		$FechaActual= Carbon::now();
+
+		//Validar Filtro año actual
+
+		if ($request->fechaInicio<$FechaActual->format('Y')) {
+			return response()->json(['errors' => ['message' => ['La fecha inicio debe estar en el año actual']]], 422);
+		}
     // Validar fechas
 		if ($request->fechaInicio>$FechaActual->format('Y-m-d')) {
 			return response()->json(['errors' => ['message' => ['La fecha inicial no debe ser mayor a la fecha actual']]], 422);
