@@ -47,12 +47,15 @@ class GraficaRondonController extends Controller
 
 			//Género
 		$femenino=DB::table('personas')->where('GeneroPersona','Femenino')->whereDate('created_at','>=',$this->nuevoProyecto())->count();
+
 		$masculino=DB::table('personas')->where('GeneroPersona','Masculino')->whereDate('created_at','>=',$this->nuevoProyecto())->count();
-		$otro=DB::table('personas')->where('GeneroPersona','Otro')->whereDate('created_at','>=',$this->nuevoProyecto())->count();
+
+		$otroGenero=DB::table('personas')->where('GeneroPersona','Otro')->whereDate('created_at','>=',$this->nuevoProyecto())->count();
+
 		$lgtbi=DB::table('personas')->where('GeneroPersona','LGTBI')->whereDate('created_at','>=',$this->nuevoProyecto())->count();
 
 
-		$totalGenero=$femenino+$masculino+$otro+$lgtbi;
+		$totalGenero=$femenino+$masculino+$otroGenero+$lgtbi;
 
 			//Ocupación
 
@@ -84,7 +87,7 @@ class GraficaRondonController extends Controller
 
 
 		$poblacionNinguna=DB::table('personas')->whereDate('created_at','>=',$this->nuevoProyecto())->where('PoblacionPersona','Ninguna')->count();
-		$poblacionVictima=DB::table('personas')->where(DB::raw('year(created_at)'),$fechaActual->format('Y'))->where('PoblacionPersona','Víctimas del conflicto armado')->count();
+		$poblacionVictima=DB::table('personas')->whereDate('created_at','>=',$this->nuevoProyecto())->where('PoblacionPersona','Víctimas del conflicto armado')->count();
 
 		$poblacionAfrocolombia=DB::table('personas')->whereDate('created_at','>=',$this->nuevoProyecto())->where('PoblacionPersona','Afrocolombiano')->count();
 		$poblacionIndigena=DB::table('personas')->whereDate('created_at','>=',$this->nuevoProyecto())->where('PoblacionPersona','Comunidades indígenas')->count();
@@ -187,7 +190,7 @@ class GraficaRondonController extends Controller
 		return response()->json([
 			'femenino'=>$femenino,
 			'masculino'=>$masculino,
-			'otro'=>$otro,
+			'otroGenero'=>$otroGenero,
 			'lgtbi'=>$lgtbi,
 			"rangoUnoEdad"=>$rangoUnoEdad,
 			"rangoDosEdad"=>$rangoDosEdad,

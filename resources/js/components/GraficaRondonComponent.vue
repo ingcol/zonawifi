@@ -10,10 +10,7 @@
          <div class="col-lg-4 col-md-4 col-sm-12">
           <div class="widget   bg-home border-home-green" >
             <div class="widget-body">
-
-
-
-             <div >
+              <div >
               <div class="state">
                 <h6 class="text-dark text-center">Total conexiones</h6>
                 <h4 class="text-center" v-text="totalConexion"></h4>
@@ -426,7 +423,7 @@
               },
               data: [
               {
-                label: "Femino",
+                label: "Femenino",
                 value: response.data.femenino
               },
               {
@@ -439,7 +436,7 @@
               },
               {
                 label: "Otro",
-                value: response.data.otro
+                value: response.data.otroGenero
               },
 
 
