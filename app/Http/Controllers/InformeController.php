@@ -16,11 +16,15 @@ class InformeController extends Controller
 	public function index(){
 		return view('informe.listado.index');
 	}
+	public function nuevoProyecto(){
+		$inicioNuevoProyecto='2021-04-08';
+		return $inicioNuevoProyecto;
+	}
 	public function listadoInforme(){
 		$FechaActual= Carbon::now();
 
 		//$persona=Persona::orderBy('created_at','desc')->get();
-		$persona = DB::table('personas')->where(DB::raw('year(created_at)'),$FechaActual->format('Y'))->orderBy('created_at','desc')->get();
+		$persona = DB::table('personas')->whereDate('created_at','>=',$this->nuevoProyecto())->orderBy('created_at','desc')->get();
 		$personaCantidad=$persona->count();
 		return response()->json(['persona' => $persona, 'personaCantidad' => $personaCantidad]);
 

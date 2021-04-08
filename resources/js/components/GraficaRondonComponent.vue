@@ -244,7 +244,7 @@
             this.totalDispositivo=response.data.totalDispositivo;
             this.dataOcupacion= {
               chart: {
-                caption: "Conexión por ocupación",
+                caption: "Conexión por ocupación ( Total: " + response.data.totalOcupacion +  ')',
 
                 xaxisname: "",
                 yaxisname: "Cantidad de personas",
@@ -304,7 +304,7 @@
             };
             this.dataNacionalidad= {
               chart: {
-                caption: "Conexión nacionalidad",
+                caption: "Conexión nacionalidad ( Total: " + response.data.totalNacionalidad + ' '+ ')',
 
                 xaxisname: "",
                 yaxisname: "Cantidad de personas",
@@ -350,7 +350,7 @@
             //Edades
             this.dataEdad= {
               chart: {
-                caption: "Conexión por rango de  edad",
+                caption: "Conexión por rango de  edad (  Total: "  +response.data.totalEdad + ' '+ ')',
 
                 xaxisname: "",
                 yaxisname: "Personas",
@@ -401,7 +401,7 @@
           //Género
           this.dataGenero= {
             chart: {
-              caption: "Conexión por género",
+              caption: "Conexión por género ( Total: " + response.data.totalGenero +' '+')',
 
               xaxisname: "",
               yaxisname: "Cantidad de personas",
@@ -449,7 +449,7 @@
             //población
             this.dataPoblacion= {
               chart: {
-                caption: "Conexión por tipo de población",
+                caption: "Conexión por tipo de población ( Total: " + response.data.totalPoblacion + ' '+')',
 
                 xaxisname: "",
                 yaxisname: "Cantidad de personas",
@@ -497,7 +497,7 @@
           //barrio
           this.dataBarrio= {
             chart: {
-              caption: "Conexión por barrio",
+              caption: "Conexión por barrio ( Total: " + response.data.totalBarrio +' '+ ')',
 
               xaxisname: "",
               yaxisname: "Cantidad de personas",
@@ -518,8 +518,8 @@
             },
             data: [
             {
-              label: "La floresta",
-              value: response.data.barrioUno
+              label: "Centro (Malecón)",
+              value: response.data.barrioCentro
             },
             {
               label: "La virgen",
@@ -530,8 +530,8 @@
               value: response.data.barrioTres
             },
             {
-              label: "Flor de mi llano",
-              value: response.data.barrioCuatro
+              label: "Biblioteca",
+              value: response.data.barrioBiblioteca
             },
             {
               label: "Barrio nuevo",
@@ -553,6 +553,10 @@
               label: "Tachuelo",
               value: response.data.barrioNueve
             },
+            {
+              label: "El paraiso",
+              value: response.data.barrioParaiso
+            }
 
 
 
@@ -563,7 +567,7 @@
           //horario
           this.dataHorario= {
             chart: {
-              caption: "Horario de conexión",
+              caption: "Horario de conexión ( Total: " + response.data.totalNavegacionHora+ ' '+ ')',
 
               xaxisname: "",
               yaxisname: "Cantidad de personas",
