@@ -596,8 +596,8 @@
             },
             data: [
             {
-              label: "La floresta",
-              value: response.data.barrioUno
+              label: "Centro (Malecón)",
+              value: response.data.barrioCentro
             },
             {
               label: "La virgen",
@@ -608,8 +608,8 @@
               value: response.data.barrioTres
             },
             {
-              label: "Flor de mi llano",
-              value: response.data.barrioCuatro
+              label: "Biblioteca",
+              value: response.data.barrioBiblioteca
             },
             {
               label: "Barrio nuevo",
@@ -631,6 +631,10 @@
               label: "Tachuelo",
               value: response.data.barrioNueve
             },
+            {
+              label: "El paraiso",
+              value: response.data.barrioParaiso
+            }
 
 
 
@@ -933,48 +937,52 @@ else if (response.data.filtro==4) {
       paletteColors: '#0075c2,#1aaf5d,#f2c500,#FF5733,#681D0D,#8944CE,#1C95BF,#5F1CBF,#ff0000',
 
     },
-    data: [
-    {
-      label: "La floresta",
-      value: response.data.barrioUno
-    },
-    {
-      label: "La virgen",
-      value: response.data.barrioDos
-    },
-    {
-      label: "20 de enero",
-      value: response.data.barrioTres
-    },
-    {
-      label: "Flor de mi llano",
-      value: response.data.barrioCuatro
-    },
-    {
-      label: "Barrio nuevo",
-      value: response.data.barrioCinco
-    },
-    {
-      label: "San ignacio",
-      value: response.data.barrioSeis
-    },
-    {
-      label: "Doble calzada",
-      value: response.data.barrioSiete
-    },
-    {
-      label: "Colegio la inmaculada",
-      value: response.data.barrioOcho
-    },
-    {
-      label: "Tachuelo",
-      value: response.data.barrioNueve
-    },
+   data: [
+            {
+              label: "Centro (Malecón)",
+              value: response.data.barrioCentro
+            },
+            {
+              label: "La virgen",
+              value: response.data.barrioDos
+            },
+            {
+              label: "20 de enero",
+              value: response.data.barrioTres
+            },
+            {
+              label: "Biblioteca",
+              value: response.data.barrioBiblioteca
+            },
+            {
+              label: "Barrio nuevo",
+              value: response.data.barrioCinco
+            },
+            {
+              label: "San ignacio",
+              value: response.data.barrioSeis
+            },
+            {
+              label: "Doble calzada",
+              value: response.data.barrioSiete
+            },
+            {
+              label: "Colegio la inmaculada",
+              value: response.data.barrioOcho
+            },
+            {
+              label: "Tachuelo",
+              value: response.data.barrioNueve
+            },
+            {
+              label: "El paraiso",
+              value: response.data.barrioParaiso
+            }
 
 
 
 
-    ],
+            ],
 
   };
 
