@@ -47,6 +47,8 @@
           <option value="4">Barrio</option>
           <option value="5">Horario de conexión</option>
           <option value="6">Género</option>
+          <option value="7">Nacionalidad</option>
+          <option value="8">Ocupación</option>
         </select>
       </div>
       
@@ -112,6 +114,21 @@
 </div>
 </div>
 
+<div class="row mt-4 mb-4  p-3 bg-white" v-if="verOcupacion">
+  <div class="col-md-12">
+   <fusioncharts
+   :type="type"
+   :width="width"
+   :height="height"
+   :dataformat="dataFormat"
+   :dataSource="dataOcupacion"
+
+   >
+ </fusioncharts>
+
+</div>
+</div>
+
 <div class="row mt-4 mb-4  p-3 bg-white"  v-if="verGenero">
   <div class="col-md-12">
    <fusioncharts
@@ -120,6 +137,21 @@
    :height="height"
    :dataformat="dataFormat"
    :dataSource="dataGenero"
+
+   >
+ </fusioncharts>
+
+</div>
+</div>
+
+<div class="row mt-4 mb-4  p-3 bg-white" v-if="verNacionalidad">
+  <div class="col-md-12">
+   <fusioncharts
+   :type="type"
+   :width="width"
+   :height="height"
+   :dataformat="dataFormat"
+   :dataSource="dataNacionalidad"
 
    >
  </fusioncharts>
@@ -165,6 +197,8 @@
           verPoblacion:false,
           verHorario:false,
           verBarriio:false,
+          verOcupacion:false,
+          verNacionalidad:false,
           type: "column3d",
           renderAt: "chart-container",
           width: "100%",
@@ -181,6 +215,8 @@
           dataPoblacion:{},
           dataBarrio:{},
           dataHorario:{},
+          dataOcupacion:{},
+          dataNacionalidad:{},
 
           fechaInicio:'',
           fechaFin:'',
@@ -262,11 +298,122 @@
       this.verPoblacion=true;
       this.verHorario=true;
       this.verBarriio=true;
+      this.verOcupacion=true
+      this.verNacionalidad=true
+      this.dataNacionalidad= {
+        chart: {
+          caption: "Conexión nacionalidad ( Total: " + response.data.totalNacionalidad + ' '+ ')',
+          SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+          subcaptionFontSize: "17",
+
+          xaxisname: "",
+          yaxisname: "Cantidad de personas",
+          "thousandSeparator": ".",
+          "numberScaleValue": "1000,1000,1000",
+
+
+          theme: "fusion",
+          exportEnabled:1,
+          "showValues": "1",
+          "rotateValues": "0",
+          "valueFontColor": "#000000",
+          "valueBgColor": "#FFFFFF",
+          "valueBgAlpha": "50",
+          "borderColor": "#666666",
+          "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+                paletteColors: '#681D0D,#8944CE,#f2c500',
+
+
+              },
+              data: [
+              {
+                label: "Colombiano",
+                value: response.data.colombiano
+              },
+              {
+                label: "Ecuatoriano",
+                value: response.data.ecuatoriano
+              },
+              {
+                label: "Venezolano",
+                value: response.data.venezolano
+              },
+              
+
+
+              ],
+
+            };
+            this.dataOcupacion= {
+              chart: {
+                caption: "Conexión por ocupación ( Total: " + response.data.totalOcupacion +  ')',
+                SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+                subcaptionFontSize: "17",
+
+                xaxisname: "",
+                yaxisname: "Cantidad de personas",
+                "thousandSeparator": ".",
+                "numberScaleValue": "1000,1000,1000",
+
+
+                theme: "fusion",
+                exportEnabled:1,
+                "showValues": "1",
+                "rotateValues": "0",
+                "valueFontColor": "#000000",
+                "valueBgColor": "#FFFFFF",
+                "valueBgAlpha": "50",
+                "borderColor": "#666666",
+                "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+                paletteColors: '#b19a26,#FF5733,#1aaf5f,#f2c500,#681D0D,#8944CE,#1C95BF',
+
+
+              },
+              data: [
+              {
+                label: "Amas de casa",
+                value: response.data.amaDeCasa
+              },
+              {
+                label: "Estudiantes",
+                value: response.data.estudiante
+              },
+              {
+                label: "Desempleados",
+                value: response.data.desempleado
+              },
+              {
+                label: "Empleados",
+                value: response.data.empleado
+              },
+              {
+                label: "Empresarios",
+                value: response.data.empresario
+              },
+              {
+                label: "Independientes",
+                value: response.data.independiente
+              },
+              {
+                label: "Otro",
+                value: response.data.otraOcupacion
+              },
+
+
+              ],
+
+            };
 
           //Género
           this.dataGenero= {
             chart: {
-              caption: "Conexión por género",
+              caption: "Conexión por género ( Total: " + response.data.totalGenero +' '+')',
               SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
               subcaptionFontSize: "17",
               "subcaptionFontColor": "#333333",
@@ -317,7 +464,7 @@
             //poblacion
             this.dataPoblacion= {
               chart: {
-                caption: "Conexión por tipo de población",
+                caption: "Conexión por tipo de población ( Total: " + response.data.totalPoblacion + ' '+')',
                 SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
                 subcaptionFontSize: "17",
                 "subcaptionFontColor": "#333333",
@@ -369,7 +516,7 @@
           //Edades
           this.dataEdad= {
             chart: {
-              caption: "Conexión por rango de  edad",
+              caption: "Conexión por rango de  edad (  Total: "  +response.data.totalEdad + ' '+ ')',
               SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
               subcaptionFontSize: "17",
               "subcaptionFontColor": "#333333",
@@ -424,7 +571,7 @@
           //Barrio
           this.dataBarrio= {
             chart: {
-              caption: "Conexión por barrio",
+              caption: "Conexión por barrio ( Total: " + response.data.totalBarrio +' '+ ')',
               SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
               subcaptionFontSize: "17",
               "subcaptionFontColor": "#333333",
@@ -494,7 +641,7 @@
           //Horario
           this.dataHorario= {
             chart: {
-              caption: "Horario de conexión",
+              caption: "Horario de conexión ( Total: " + response.data.totalNavegacionHora+ ' '+ ')',
 
               xaxisname: "",
               yaxisname: "Cantidad de personas",
@@ -627,10 +774,12 @@
           this.verPoblacion=false;
           this.verHorario=false;
           this.verBarriio=false;
+          this.verOcupacion=false;
+          this.verNacionalidad=false
 
           this.dataEdad= {
             chart: {
-              caption: "Conexión por rango de  edad",
+              caption: "Conexión por rango de  edad (  Total: "  +response.data.totalEdad + ' '+ ')',
               SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
               subcaptionFontSize: "17",
               "subcaptionFontColor": "#333333",
@@ -693,9 +842,11 @@
           this.verPoblacion=true;
           this.verHorario=false;
           this.verBarriio=false;
+          this.verOcupacion=false;
+          this.verNacionalidad=false
           this.dataPoblacion= {
             chart: {
-              caption: "Conexión por tipo de población",
+              caption: "Conexión por tipo de población ( Total: " + response.data.totalPoblacion + ' '+')',
               SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
               subcaptionFontSize: "17",
               "subcaptionFontColor": "#333333",
@@ -755,9 +906,11 @@ else if (response.data.filtro==4) {
   this.verPoblacion=false;
   this.verHorario=false;
   this.verBarriio=true;
+  this.verOcupacion=false;
+  this.verNacionalidad=false
   this.dataBarrio= {
     chart: {
-      caption: "Conexión por barrio",
+      caption: "Conexión por barrio ( Total: " + response.data.totalBarrio +' '+ ')',
       SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
       subcaptionFontSize: "17",
       "subcaptionFontColor": "#333333",
@@ -830,15 +983,16 @@ else if (response.data.filtro==4) {
 else if (response.data.filtro==5) {
 
 
-
+  this.verNacionalidad=false
   this.verGenero=false;
   this.verEdad=false;
   this.verPoblacion=false;
   this.verHorario=true;
   this.verBarriio=false;
+  this.verOcupacion=false;
   this.dataHorario= {
     chart: {
-      caption: "Horario de conexión",
+      caption: "Horario de conexión ( Total: " + response.data.totalNavegacionHora+ ' '+ ')',
 
       xaxisname: "",
       yaxisname: "Cantidad de personas",
@@ -969,35 +1123,36 @@ else if (response.data.filtro==5) {
 else if (response.data.filtro==6) {
 
 
-
+  this.verNacionalidad=false
   this.verGenero=true;
   this.verEdad=false;
   this.verPoblacion=false;
   this.verHorario=false;
   this.verBarriio=false;
+  this.verOcupacion=false;
   //Género
-          this.dataGenero= {
-            chart: {
-              caption: "Conexión por género",
-              SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
-              subcaptionFontSize: "17",
-              "subcaptionFontColor": "#333333",
-              "subcaptionFontBold": "0",
-              xaxisname: "",
-              yaxisname: "Cantidad de personas",
-              "thousandSeparator": ".",
-              "numberScaleValue": "1000,1000,1000",
+  this.dataGenero= {
+    chart: {
+      caption: "Conexión por género ( Total: " + response.data.totalGenero +' '+')',
+      SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+      subcaptionFontSize: "17",
+      "subcaptionFontColor": "#333333",
+      "subcaptionFontBold": "0",
+      xaxisname: "",
+      yaxisname: "Cantidad de personas",
+      "thousandSeparator": ".",
+      "numberScaleValue": "1000,1000,1000",
 
 
-              theme: "fusion",
-              exportEnabled:1,
-              "showValues": "1",
-              "rotateValues": "0",
-              "valueFontColor": "#000000",
-              "valueBgColor": "#FFFFFF",
-              "valueBgAlpha": "50",
-              "borderColor": "#666666",
-              "borderThickness": "4",
+      theme: "fusion",
+      exportEnabled:1,
+      "showValues": "1",
+      "rotateValues": "0",
+      "valueFontColor": "#000000",
+      "valueBgColor": "#FFFFFF",
+      "valueBgAlpha": "50",
+      "borderColor": "#666666",
+      "borderThickness": "4",
                 /* color de fondo
                 "bgColor": "#FAFAFA",
                 "bgAlpha": "50",*/
@@ -1027,45 +1182,167 @@ else if (response.data.filtro==6) {
 
             };
 
-  
-}
-else{
+
+          }
+
+          else if (response.data.filtro==7) {
 
 
-  this.verGenero=false;
-  this.verEdad=false;
-  this.verPoblacion=false;
-  this.verHorario=false;
-  this.verBarriio=false;
+            this.verNacionalidad=true
+            this.verGenero=false;
+            this.verEdad=false;
+            this.verPoblacion=false;
+            this.verHorario=false;
+            this.verBarriio=false;
+            this.verOcupacion=false;
+  //Nacionalidad
+  this.dataNacionalidad= {
+    chart: {
+      caption: "Conexión nacionalidad ( Total: " + response.data.totalNacionalidad + ' '+ ')',
+      SubCaption:"Conexión de:"+' ' + moment(response.data.InicioFiltro).format("D, MMMM YYYY")+'. '+ "Hasta:" +' '+ moment(response.data.finFiltro).format("D, MMMM YYYY"),
+      subcaptionFontSize: "17",
 
-}
-this.isLoading = false;
-
-}) .catch(error => {
- this.isLoading = false;
- _.forEach(error.response.data.errors, function(value, key) {
-  $.toast({
-    heading: '¡Error!',
-    text: value,
-    showHideTransition: 'slide',
-    icon: 'error',
-    loaderBg: '#f2a654',
-    position: 'top-right',
-
-  });
-
-});
+      xaxisname: "",
+      yaxisname: "Cantidad de personas",
+      "thousandSeparator": ".",
+      "numberScaleValue": "1000,1000,1000",
 
 
-});
+      theme: "fusion",
+      exportEnabled:1,
+      "showValues": "1",
+      "rotateValues": "0",
+      "valueFontColor": "#000000",
+      "valueBgColor": "#FFFFFF",
+      "valueBgAlpha": "50",
+      "borderColor": "#666666",
+      "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+                paletteColors: '#681D0D,#8944CE,#f2c500',
 
-}
 
-},
-computed: {
+              },
+              data: [
+              {
+                label: "Colombiano",
+                value: response.data.colombiano
+              },
+              {
+                label: "Ecuatoriano",
+                value: response.data.ecuatoriano
+              },
+              {
+                label: "Venezolano",
+                value: response.data.venezolano
+              },
+              
 
-}
-};
+
+              ],
+
+            };
+
+
+          }
+          else{
+
+
+            this.verGenero=false;
+            this.verEdad=false;
+            this.verPoblacion=false;
+            this.verHorario=false;
+            this.verBarriio=false;
+            this.verOcupacion=true;
+            this.verNacionalidad=false
+            this.dataOcupacion= {
+              chart: {
+                caption: "Conexión por ocupación ( Total: " + response.data.totalOcupacion +  ')',
+
+                xaxisname: "",
+                yaxisname: "Cantidad de personas",
+                "thousandSeparator": ".",
+                "numberScaleValue": "1000,1000,1000",
+
+
+                theme: "fusion",
+                exportEnabled:1,
+                "showValues": "1",
+                "rotateValues": "0",
+                "valueFontColor": "#000000",
+                "valueBgColor": "#FFFFFF",
+                "valueBgAlpha": "50",
+                "borderColor": "#666666",
+                "borderThickness": "4",
+                /* color de fondo
+                "bgColor": "#FAFAFA",
+                "bgAlpha": "50",*/
+                paletteColors: '#b19a26,#FF5733,#1aaf5f,#f2c500,#681D0D,#8944CE,#1C95BF',
+
+
+              },
+              data: [
+              {
+                label: "Amas de casa",
+                value: response.data.amaDeCasa
+              },
+              {
+                label: "Estudiantes",
+                value: response.data.estudiante
+              },
+              {
+                label: "Desempleados",
+                value: response.data.desempleado
+              },
+              {
+                label: "Empleados",
+                value: response.data.empleado
+              },
+              {
+                label: "Empresarios",
+                value: response.data.empresario
+              },
+              {
+                label: "Independientes",
+                value: response.data.independiente
+              },
+              {
+                label: "Otro",
+                value: response.data.otraOcupacion
+              },
+
+
+              ],
+
+            };
+
+          }
+          this.isLoading = false;
+
+        }) .catch(error => {
+         this.isLoading = false;
+         _.forEach(error.response.data.errors, function(value, key) {
+           Vue.swal({
+            title:''+value,
+            icon:'error',
+            confirmButtonText: "Aceptar",
+
+
+          });
+
+         });
+
+
+       });
+
+      }
+
+    },
+    computed: {
+
+    }
+  };
 </script>
 <style>
   .vdpArrowPrev:after {
